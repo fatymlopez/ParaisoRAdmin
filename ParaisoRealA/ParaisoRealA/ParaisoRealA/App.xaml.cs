@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ParaisoRealA.View;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ParaisoRealA
@@ -11,7 +12,8 @@ namespace ParaisoRealA
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new Login();
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.Opciones">
+
+
+    <StackLayout Margin="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="Logo.png" Grid.Column="0" Grid.Row="0"></Image>
+            <Label Text="Agregar Menu" Grid.Column="0" Grid.Row="1"></Label>
+
+            <Image Source="Logo.png" Grid.Column="1" Grid.Row="0"></Image>
+            <Label Text="Agregar Usuario" Grid.Column="1" Grid.Row="1"></Label>
+
+            <Image Source="Logo.png" Grid.Column="0" Grid.Row="3"></Image>
+            <Label Text="Ver Notificaciones" Grid.Column="0" Grid.Row="4"></Label>
+
+            <Image Source="Logo.png" Grid.Column="1" Grid.Row="4"></Image>
+            <Label Text="Salir" Grid.Column="1" Grid.Row="0"></Label>
+
+        </Grid>
+    </StackLayout>
+    
+    
+</ContentPage>

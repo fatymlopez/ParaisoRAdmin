@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ParaisoRealA.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Login : ContentPage
+	public partial class Opciones : ContentPage
 	{
-		public Login ()
+		public Opciones ()
 		{
 			InitializeComponent ();
 		}
-
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            Password.IsPassword = Password.IsPassword ? false : true;
-        }
-    }
+	}
 }

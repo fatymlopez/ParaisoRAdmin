@@ -2,18 +2,68 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:VM="clr-namespace:ParaisoRealA.ViewModel"
+             xmlns:local="clr-namespace:ParaisoRealA.Controllers"
              x:Class="ParaisoRealA.View.Login">
 
     <ContentPage.BindingContext>
         <VM:LoginVM></VM:LoginVM>
     </ContentPage.BindingContext>
-   
-    <ContentPage.Content>
-        <StackLayout>
+
+    <StackLayout Margin="20">
+
+        <StackLayout Margin="20">
             <Image Source="Logo.png"></Image>
-            <Entry Placeholder="Usuario"></Entry>
-            <Entry Placeholder="Contraseña"></Entry>
             
+            <local:CtrlEntry Placeholder="Usuario" 
+                             Image="user"
+                             ImageHeigth="20"
+                             ImageWidth="20"
+                             HorizontalOptions="FillAndExpand">
+
+            </local:CtrlEntry>
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Grid.Row="2" Grid.Column="1" Margin="20,10,20,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <local:CtrlEntry
+                               Placeholder="Constraseña"
+                               IsPassword="True"
+                               x:Name="Password"
+                               Grid.ColumnSpan="2"
+                               Grid.Column="0"
+                               Image="contra"
+                               ImageHeigth="20"
+                               ImageWidth="20">
+                </local:CtrlEntry>
+
+                <Image Source="key.png" 
+                               HorizontalOptions="End" 
+                               VerticalOptions="Center" 
+                               Grid.Column="1" 
+                               HeightRequest="30">
+
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" 
+                                                      NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+
+                </Image>
+            </Grid>
+        </StackLayout>
+
+        <Button 
+                     HeightRequest="46"
+                     BorderRadius="23"
+                     BackgroundColor="#CFB346"
+                     Text="Iniciar Sesion"
+                     TextColor="White"                    
+                     Margin="10,20"
+                     Command="{Binding OpcionesCommand}"/>
+    </StackLayout>
 </ContentPage>
