@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             x:Class="ParaisoRealA.View.Notificaciones">
+
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="notification.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20">
+        <StackLayout>
+            <Label Text="Notificaciones" HorizontalOptions="Center" TextColor="Black"></Label>
+        </StackLayout>
+        <ScrollView>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell></ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <StackLayout>
+            <Button Text="Elminar Notificaciones del Dia" Command="{Binding NotificacionCommand}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

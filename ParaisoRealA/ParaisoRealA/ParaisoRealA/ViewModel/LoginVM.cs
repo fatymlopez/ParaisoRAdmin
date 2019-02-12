@@ -15,7 +15,7 @@ namespace ParaisoRealA.ViewModel
 
         public  void Ingresar()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Opciones());
+            App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
         }
 
         #region

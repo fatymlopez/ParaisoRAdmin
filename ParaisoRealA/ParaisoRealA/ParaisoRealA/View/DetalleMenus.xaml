@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.DetalleMenus">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="combo.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20">
+        <StackLayout>
+            <Label Text="Notificaciones" HorizontalOptions="Center" TextColor="Black"></Label>
+        </StackLayout>
+        <ScrollView>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell></ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Editar" 
+                    Command="{Binding EditarCommand}">
+
+            </Button>
+            <Button Text="Elminar" 
+                    Command="{Binding EliminarCommand}">
+
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

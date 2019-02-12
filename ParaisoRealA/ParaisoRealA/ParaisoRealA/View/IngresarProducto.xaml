@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.IngresarProducto">
+    <ScrollView>
+    <StackLayout>
+        <Label Text="Seleccione una Categoria"></Label>
+        <Entry Placeholder="aqui va ir un spinner"></Entry>
+
+        <Label Text="Nombre del Producto"></Label>
+        <Entry></Entry>
+
+        <Label Text="Ingrese la existencias"></Label>
+        <Entry></Entry>
+
+        <Label Text="Ingrese su Precio"></Label>
+        <Entry></Entry>
+
+        <Button Text="Agregar" HorizontalOptions="Center"></Button>
+
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
