@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.VerDetalleP">
+    <ContentPage.BindingContext>
+        <vm:VerDetalleVM></vm:VerDetalleVM>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Categoria"></Label>
+            <Label Text="{Binding MostrarCategoria}"></Label>
+
+            <Label Text="Nombre del Producto"></Label>
+            <Label Text="{Binding NombreProduct}"></Label>
+
+            <Label Text="Existencias"></Label>
+            <Label Text="{Binding MostrarExistencias}"></Label>
+
+            <Label Text="Precio"></Label>
+            <Label Text="{Binding MostrarPrecio}"></Label>
+
+            <Button Text="Editar" Command="{Binding EditarPCommand}"></Button>
+            
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

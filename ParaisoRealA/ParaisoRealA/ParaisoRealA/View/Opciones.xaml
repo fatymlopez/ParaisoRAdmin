@@ -6,8 +6,8 @@
              BackgroundColor="White"
              x:Class="ParaisoRealA.View.Opciones">
 
-    
- 
+
+    <ScrollView>
         <StackLayout Orientation="Vertical">
             <StackLayout>
                 <Image Source="Logo.png"></Image>
@@ -46,7 +46,7 @@
 
             </ListView>
         </StackLayout>
- 
+    </ScrollView>
 </ContentPage>
 
 

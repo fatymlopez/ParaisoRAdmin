@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.IngresarProducto">
     <ScrollView>
-    <StackLayout>
-        <Label Text="Seleccione una Categoria"></Label>
+    <StackLayout Margin="20">
+            <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
+        <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
         <Entry Placeholder="aqui va ir un spinner"></Entry>
 
         <Label Text="Nombre del Producto"></Label>
@@ -16,8 +17,9 @@
         <Label Text="Ingrese su Precio"></Label>
         <Entry></Entry>
 
-        <Button Text="Agregar" HorizontalOptions="Center"></Button>
-
-    </StackLayout>
+        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Button Text="Agregar" HorizontalOptions="Center" Command="{Binding AgregarPCommand}"></Button>
+            </StackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

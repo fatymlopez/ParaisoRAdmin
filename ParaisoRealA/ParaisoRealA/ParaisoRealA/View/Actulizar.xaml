@@ -6,14 +6,16 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.Icon>
-                <FileImageSource File="update.png"></FileImageSource>
+                <FileImageSource File="upadate.png"></FileImageSource>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20">
         <StackLayout>
-            <Label Text="Notificaciones" HorizontalOptions="Center" TextColor="Black"></Label>
+            <Label Text="Editar Menu Seleccionado" HorizontalOptions="Center" TextColor="Black"></Label>
+            <Label Text="" Margin="0,20,0,0"></Label>
+            <Entry Placeholder="Aqui va ir un spinner que despliegue"></Entry>
         </StackLayout>
         <ScrollView>
             <ListView>
@@ -24,8 +26,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-        <StackLayout>
+        <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
             <Button Text="Actualizar" Command="{Binding ActulizarCommand}"></Button>
+            <Button Text="Elminar" Command="{Binding EliminarCommand}"></Button>
         </StackLayout>
-    </StackLayout>
+        </StackLayout>
 </ContentPage>

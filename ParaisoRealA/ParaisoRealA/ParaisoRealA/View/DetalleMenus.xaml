@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.DetalleMenus">
+
+    <ContentPage.BindingContext>
+        <vm:DetalleMenusVM></vm:DetalleMenusVM>
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem>
@@ -13,7 +18,7 @@
 
     <StackLayout Margin="20">
         <StackLayout>
-            <Label Text="Notificaciones" HorizontalOptions="Center" TextColor="Black"></Label>
+            <Label Text="Ver Detalle del Menu Seleccionado" HorizontalOptions="Center" TextColor="Black"></Label>
         </StackLayout>
         <ScrollView>
             <ListView>
@@ -24,14 +29,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout HorizontalOptions="Center">
             <Button Text="Editar" 
                     Command="{Binding EditarCommand}">
-
-            </Button>
-            <Button Text="Elminar" 
-                    Command="{Binding EliminarCommand}">
-
             </Button>
         </StackLayout>
     </StackLayout>

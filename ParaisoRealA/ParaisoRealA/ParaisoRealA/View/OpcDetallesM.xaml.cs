@@ -16,5 +16,19 @@ namespace ParaisoRealA.View
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            (sender as ListView).SelectedItem = null;
+
+            if (args.SelectedItem != null)
+            {
+                ViewModel.OpcDetalleVM pageData = args.SelectedItem as ViewModel.OpcDetalleVM;
+                Page page = (Page)Activator.CreateInstance(pageData.Type);
+                await Navigation.PushAsync(page);
+
+
+            }
+        }
+    }
 }

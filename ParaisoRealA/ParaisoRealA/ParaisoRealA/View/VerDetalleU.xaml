@@ -1,25 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ParaisoRealA.View.IngresarUsuario">
+             x:Class="ParaisoRealA.View.VerDetalleU">
 
-    <ScrollView>
-        <StackLayout Margin="20">
+   
+        <StackLayout>
             <Label Text="Nombre"></Label>
-            <Entry Placeholder="aqui va ir un spinner por si acaso"></Entry>
+            <Label Text="{Binding NombreU}"></Label>
 
             <Label Text="Apellido"></Label>
-            <Entry></Entry>
+            <Label Text="{Binding ApellidoU}"></Label>
 
             <Label Text="Usuario"></Label>
-            <Entry></Entry>
+            <Label Text="{Binding MostrarU}"></Label>
 
             <Label Text="Contraseña"></Label>
-            <Entry></Entry>
+            <Label Text="{Binding MostrarC}"></Label>
 
-            <Button Text="Agregar nuevo Usuario" HorizontalOptions="Center"></Button>
-          
+            <Button Text="Editar" Command="{Binding EditarPCommand}"></Button>
 
         </StackLayout>
-    </ScrollView>
 </ContentPage>

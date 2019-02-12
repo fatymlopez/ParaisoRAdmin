@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.ActualizarP">
+    
+
+    
+        <StackLayout Margin="20">
+            <Label Text="Actualizar Producto" TextColor="Black" HorizontalOptions="Center"></Label>
+            <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
+            <Entry Placeholder="aqui va ir un spinner"></Entry>
+            <Label Text="Nombre del Producto"></Label>
+            <Entry></Entry>
+
+            <Label Text="Ingrese la existencias"></Label>
+            <Entry></Entry>
+
+            <Label Text="Ingrese su Precio"></Label>
+            <Entry></Entry>
+
+            <StackLayout Orientation="Horizontal">
+            <Button Text="Actualizar" HorizontalOptions="Center"   Command="{Binding ActualizarPCommand}"></Button>
+            <Button Text="Eliminar" HorizontalOptions="Center"   Command="{Binding EliminarPCommand}"></Button>
+        </StackLayout>
+
+        </StackLayout>
+ 
+</ContentPage>

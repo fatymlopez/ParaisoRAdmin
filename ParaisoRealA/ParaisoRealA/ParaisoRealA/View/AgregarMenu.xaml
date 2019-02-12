@@ -7,10 +7,16 @@
     <ContentPage.BindingContext>
         <vm:AgregarMenuVM></vm:AgregarMenuVM>
     </ContentPage.BindingContext>
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="cubiertos.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <StackLayout Margin="20">
         <StackLayout>
-            <Entry Text="Spiner que despliega las categorias"></Entry>
+            <Entry Placeholder="Spiner que despliega las categorias"></Entry>
         </StackLayout>
         <ScrollView>
         <ListView>
