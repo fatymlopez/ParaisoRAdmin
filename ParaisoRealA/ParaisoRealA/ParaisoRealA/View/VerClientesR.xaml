@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.VerClientesR">
+
+    <ContentPage.BindingContext>
+        <vm:VerClientRVM></vm:VerClientRVM>
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem>
@@ -16,10 +21,15 @@
             <Label Text="Ver Clientes Registrados" HorizontalOptions="Center" TextColor="Black"></Label>
         </StackLayout>
         <ScrollView>
-            <ListView>
+            <ListView x:Name="ClienteListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell></ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding nombreclcommand}"></Label>
+                                <Label Text="{Binding usuarioclcommand}"></Label>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
