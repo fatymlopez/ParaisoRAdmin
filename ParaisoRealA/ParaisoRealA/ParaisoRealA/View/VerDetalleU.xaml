@@ -5,19 +5,16 @@
 
    
         <StackLayout>
-            <Label Text="Nombre"></Label>
-            <Label Text="{Binding NombreU}"></Label>
+            <Label Text="Nombre del usuario"></Label>
+            <Label Text="{Binding nombrecl}"></Label>
 
-            <Label Text="Apellido"></Label>
-            <Label Text="{Binding ApellidoU}"></Label>
+            <Label Text="Numero de Contacto"></Label>
+            <Label Text="{Binding cellcl}"></Label>
 
-            <Label Text="Usuario"></Label>
-            <Label Text="{Binding MostrarU}"></Label>
+            <Label Text="Correo Electronico"></Label>
+            <Label Text="{Binding emailcl}"></Label>
 
-            <Label Text="Contraseña"></Label>
-            <Label Text="{Binding MostrarC}"></Label>
-
-            <Button Text="Editar" Command="{Binding EditarPCommand}"></Button>
+            
 
         </StackLayout>
 </ContentPage>

@@ -6,7 +6,7 @@
     <StackLayout Margin="20">
             <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
         <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
-        <Entry Placeholder="aqui va ir un spinner"></Entry>
+            <Picker></Picker>
 
         <Label Text="Nombre del Producto"></Label>
         <Entry></Entry>
