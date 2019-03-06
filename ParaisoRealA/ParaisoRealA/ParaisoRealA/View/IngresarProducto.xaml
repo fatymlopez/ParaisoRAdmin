@@ -3,22 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.IngresarProducto">
     <ScrollView>
-    <StackLayout Margin="20">
+        <StackLayout Margin="20">
             <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
-        <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
-            <Picker></Picker>
+            <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
 
-        <Label Text="Nombre del Producto"></Label>
-        <Entry></Entry>
+            <Picker x:Name="category" Title="Seleccione una opcion"
+                    ItemDisplayBinding="{Binding nomcategoria}"
+                    SelectedItem="{Binding categoryselect}"
+                    ItemsSource="{Binding Itemcategory}">
+            </Picker>
 
-        <Label Text="Ingrese la existencias"></Label>
-        <Entry></Entry>
+            <Label Text="{Binding categoryselect.nomcategoria}" x:Name="idcategoriacomm"></Label>
 
-        <Label Text="Ingrese su Precio"></Label>
-        <Entry></Entry>
+            <Label Text="Nombre del producto"></Label>
+            <Entry Text="{Binding nomproductocomm}"></Entry>
 
-        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                <Button Text="Agregar" HorizontalOptions="Center" Command="{Binding AgregarPCommand}"></Button>
+            <Label Text="Ingrese una descripcion"></Label>
+            <Entry Text="{Binding descripcioncomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
+
+            <Label Text="Ingrese las existencias"></Label>
+            <Entry Text="{Binding existenciascomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
+
+            <Label Text="Ingrese su Precio"></Label>
+            <Entry Text="{Binding preciocomm}"></Entry>
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Button Text="Agregar" HorizontalOptions="Center" x:Name="btnguardar" Clicked="Btnguardar_Clicked"></Button>
             </StackLayout>
         </StackLayout>
     </ScrollView>
