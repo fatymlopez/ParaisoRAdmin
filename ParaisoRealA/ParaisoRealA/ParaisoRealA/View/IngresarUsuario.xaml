@@ -6,7 +6,7 @@
     <ScrollView>
         <StackLayout Margin="20">
             <Label Text="Nombre"></Label>
-            <Entry Placeholder="aqui va ir un spinner por si acaso"></Entry>
+            <Entry Text="{Binding usuproperty}"></Entry>
 
             <Label Text="Apellido"></Label>
             <Entry></Entry>
@@ -17,7 +17,7 @@
             <Label Text="Contraseña"></Label>
             <Entry></Entry>
 
-            <Button Text="Agregar nuevo Usuario" HorizontalOptions="Center"></Button>
+            <Button Text="Agregar nuevo Usuario"></Button>
           
         </StackLayout>
     </ScrollView>

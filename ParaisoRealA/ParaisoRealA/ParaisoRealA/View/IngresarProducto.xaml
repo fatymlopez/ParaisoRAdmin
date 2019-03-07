@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.IngresarProducto">
+
+    <ContentPage.BindingContext>
+        <vm:IngresarPVM></vm:IngresarPVM>
+    </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout Margin="20">
             <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
@@ -9,11 +14,12 @@
 
             <Picker x:Name="category" Title="Seleccione una opcion"
                     ItemDisplayBinding="{Binding nomcategoria}"
-                    SelectedItem="{Binding categoryselect}"
+                    SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
             </Picker>
 
-            <Label Text="{Binding categoryselect.nomcategoria}" x:Name="idcategoriacomm"></Label>
+            <Label Text="{Binding selectcategory.nomcategoria}"></Label>
+           
 
             <Label Text="Nombre del producto"></Label>
             <Entry Text="{Binding nomproductocomm}"></Entry>
@@ -27,9 +33,9 @@
             <Label Text="Ingrese su Precio"></Label>
             <Entry Text="{Binding preciocomm}"></Entry>
 
-            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                <Button Text="Agregar" HorizontalOptions="Center" x:Name="btnguardar" Clicked="Btnguardar_Clicked"></Button>
-            </StackLayout>
+            
+                <Button Text="Agregar" Command="{Binding AgregarProductoCommand}"></Button>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>
