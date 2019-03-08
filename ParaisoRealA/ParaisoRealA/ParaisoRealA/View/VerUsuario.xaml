@@ -17,10 +17,19 @@
             <Entry Placeholder="Buscar"></Entry>
         </StackLayout>
         <ScrollView>
-            <ListView>
+            <ListView
+                x:Name="UsuarioAppListView"
+                ItemSelected="UsuarioAppListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell></ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding id}"></Label>
+                                <Label Text="-"></Label>
+                                <Label Text="{Binding nombre}"></Label>
+                                <Label Text="{Binding usuario}"></Label>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

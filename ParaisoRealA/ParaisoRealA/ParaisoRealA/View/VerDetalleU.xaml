@@ -3,18 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.VerDetalleU">
 
-   
-        <StackLayout>
-            <Label Text="Nombre del usuario"></Label>
-            <Label Text="{Binding nombrecl}"></Label>
 
-            <Label Text="Numero de Contacto"></Label>
-            <Label Text="{Binding cellcl}"></Label>
+    <StackLayout>
+        <Label Text="Nombre del usuario"></Label>
+        <Label Text="{Binding nombre}"></Label>
 
-            <Label Text="Correo Electronico"></Label>
-            <Label Text="{Binding emailcl}"></Label>
+        <Label Text="Usuario"></Label>
+        <Label Text="{Binding usuario}"></Label>
 
-            
+        <Label Text="Correo Electronico"></Label>
+        <Label Text="{Binding emailusu}"></Label>
 
-        </StackLayout>
+        <Label Text="Contraseña"></Label>
+        <Label Text="{Binding passusu}"></Label>
+
+        <Button Text="Borrar" Command="{Binding BorrarUsuCommand}"></Button>
+        <Button Text="Editar Usuario" Command="{Binding EditarUsuCommand}"></Button>
+
+    </StackLayout>
+    
 </ContentPage>

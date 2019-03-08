@@ -6,5 +6,6 @@ namespace ParaisoRealA.Model.Modeldb
 {
     public class menu
     {
+
     }
 }

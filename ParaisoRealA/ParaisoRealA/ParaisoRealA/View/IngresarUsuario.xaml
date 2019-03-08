@@ -1,23 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.IngresarUsuario">
 
+
+    <ContentPage.BindingContext>
+        <vm:IngresarUVM></vm:IngresarUVM>
+    </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout Margin="20">
             <Label Text="Nombre"></Label>
-            <Entry Text="{Binding usuproperty}"></Entry>
-
-            <Label Text="Apellido"></Label>
-            <Entry></Entry>
+            <Entry Text="{Binding nomproperty}"></Entry>
 
             <Label Text="Usuario"></Label>
-            <Entry></Entry>
+            <Entry Text="{Binding usuproperty}"></Entry>
+
+            <Label Text="Correo"></Label>
+            <Entry Text="{Binding emailproperty}"></Entry>
 
             <Label Text="Contraseña"></Label>
-            <Entry></Entry>
+            <Entry Text="{Binding passproperty}"></Entry>
 
-            <Button Text="Agregar nuevo Usuario"></Button>
+            <Button Text="Agregar nuevo Usuario" Command="{Binding AgregarUsuCommand}"></Button>
           
         </StackLayout>
     </ScrollView>
