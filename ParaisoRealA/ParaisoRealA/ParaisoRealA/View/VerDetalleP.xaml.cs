@@ -15,6 +15,8 @@ namespace ParaisoRealA.View
         public VerDetalleP()
         {
             InitializeComponent();
+           
+
         }
     }
 }

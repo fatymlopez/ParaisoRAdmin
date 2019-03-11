@@ -34,6 +34,15 @@ namespace ParaisoRealA.View
             (sender as ListView).SelectedItem = null;
             if (e.SelectedItem != null)
             {
+                //esto es para que en vez que aparesca idcategoria aparesca el nombre
+               // HttpClient clients = new HttpClient();
+                //var idcategoria = e.SelectedItem as categorias;
+               // string cadenasql = $"http://paraisoreal19.somee.com/api/categoriass/Getcategorias/{0}",{ idcategoria.id};
+               // var response = await clients.GetStringAsync($"http://paraisoreal19.somee.com/api/categoriass/Getcategorias/1");
+               // var vercategorias = JsonConvert.DeserializeObject<categorias>(response);
+
+
+
                 await App.Current.MainPage.Navigation.PushAsync(new VerDetalleP { BindingContext = e.SelectedItem });
             }
         }

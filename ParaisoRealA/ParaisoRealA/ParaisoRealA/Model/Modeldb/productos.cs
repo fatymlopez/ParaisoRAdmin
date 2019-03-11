@@ -13,6 +13,7 @@ namespace ParaisoRealA.Model.Modeldb
         public string descripcion { get; set; }
         public int existencia { get; set; }
         public decimal precio { get; set; }
+        public categorias categorias { get; set; }
 
         
     }
