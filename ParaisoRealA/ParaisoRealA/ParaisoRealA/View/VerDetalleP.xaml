@@ -10,16 +10,19 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Categoria"></Label>
-            <Label Text="{Binding MostrarCategoria}"></Label>
+            <Label Text="{Binding nomcategoria}"></Label>
 
             <Label Text="Nombre del Producto"></Label>
-            <Label Text="{Binding NombreProduct}"></Label>
+            <Label Text="{Binding nomproducto}"></Label>
 
             <Label Text="Existencias"></Label>
-            <Label Text="{Binding MostrarExistencias}"></Label>
+            <Label Text="{Binding descripcion}"></Label>
 
             <Label Text="Precio"></Label>
-            <Label Text="{Binding MostrarPrecio}"></Label>
+            <Label Text="{Binding existencia}"></Label>
+
+            <Label Text="Precio"></Label>
+            <Label Text="{Binding precio}"></Label>
 
             <Button Text="Editar" Command="{Binding EditarPCommand}"></Button>
             

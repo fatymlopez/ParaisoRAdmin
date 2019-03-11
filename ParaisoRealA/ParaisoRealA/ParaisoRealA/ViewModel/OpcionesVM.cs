@@ -18,14 +18,13 @@ namespace ParaisoRealA.ViewModel
         {
             All = new List<OpcionesVM>
             {
-
-                new OpcionesVM(typeof(View.AgregarMenu), "Agregar Menu del dia", ""),
-                new OpcionesVM(typeof(View.OpcDetallesM), "Ver Menus del Dia",""),
+             
                 new OpcionesVM(typeof(View.IngresarProducto), "Ingresar Producto", ""),
                 new OpcionesVM(typeof(View.VerProductos), "Ver Productos Ingresados", ""),
                 new OpcionesVM(typeof(View.IngresarUsuario), "Ingresar Usuario", ""),
                 new OpcionesVM(typeof(View.VerUsuario), "Ver Usuarios Registrados", ""),
                 new OpcionesVM(typeof(View.VerClientesR), "Ver Clientes Registrados", ""),
+                
 
             };
         }

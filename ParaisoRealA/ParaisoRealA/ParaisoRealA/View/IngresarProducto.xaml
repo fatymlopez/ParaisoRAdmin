@@ -17,10 +17,7 @@
                     SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
             </Picker>
-
-            <Label Text="{Binding selectcategory.nomcategoria}"></Label>
            
-
             <Label Text="Nombre del producto"></Label>
             <Entry Text="{Binding nomproductocomm}"></Entry>
 
@@ -28,7 +25,7 @@
             <Entry Text="{Binding descripcioncomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
 
             <Label Text="Ingrese las existencias"></Label>
-            <Entry Text="{Binding existenciascomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
+            <Entry Text="{Binding existenciascomm}"></Entry>
 
             <Label Text="Ingrese su Precio"></Label>
             <Entry Text="{Binding preciocomm}"></Entry>

@@ -19,7 +19,9 @@
         <ScrollView>
             <ListView
                 x:Name="UsuarioAppListView"
-                ItemSelected="UsuarioAppListView_ItemSelected">
+                ItemSelected="UsuarioAppListView_ItemSelected"
+                ItemsSource="{Binding }"
+                SelectedItem="{Binding UsuarioAppListView}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

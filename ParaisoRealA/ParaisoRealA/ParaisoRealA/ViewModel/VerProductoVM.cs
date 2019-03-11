@@ -4,7 +4,12 @@ using System.Text;
 
 namespace ParaisoRealA.ViewModel
 {
-    class LoginVM
+    public class VerProductoVM
     {
+        public VerProductoVM()
+        {
+
+
+        }
     }
 }

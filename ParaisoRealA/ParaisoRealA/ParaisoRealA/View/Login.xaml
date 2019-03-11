@@ -17,7 +17,9 @@
         <StackLayout Margin="20">
             <Image Source="Logo.png"></Image>
             
-            <local:CtrlEntry Placeholder="Usuario" 
+            <local:CtrlEntry 
+                             Text="{Binding usuarioproperty}"
+                             Placeholder="Usuario" 
                              Image="user"
                              ImageHeigth="20"
                              ImageWidth="20"
@@ -34,6 +36,7 @@
                 </Grid.ColumnDefinitions>
 
                 <local:CtrlEntry
+                               Text="{Binding passproperty}"
                                Placeholder="Constraseña"
                                IsPassword="True"
                                x:Name="Password"
