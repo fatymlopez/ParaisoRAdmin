@@ -12,17 +12,19 @@
         <VM:LoginVM></VM:LoginVM>
     </ContentPage.BindingContext>
 
+    <ScrollView>
     <StackLayout Margin="20">
-
+            <Image Source="Logo.png">
+            </Image>
         <StackLayout Margin="20">
-            <Image Source="Logo.png"></Image>
+       
             
             <local:CtrlEntry 
                              Text="{Binding usuarioproperty}"
                              Placeholder="Usuario" 
                              Image="user"
-                             ImageHeigth="20"
-                             ImageWidth="20"
+                             ImageHeigth="15"
+                             ImageWidth="15"
                              HorizontalOptions="FillAndExpand">
 
             </local:CtrlEntry>
@@ -43,8 +45,8 @@
                                Grid.ColumnSpan="2"
                                Grid.Column="0"
                                Image="contra"
-                               ImageHeigth="20"
-                               ImageWidth="20">
+                               ImageHeigth="15"
+                               ImageWidth="15">
                 </local:CtrlEntry>
 
                 <Image Source="key.png" 
@@ -66,10 +68,11 @@
         <Button 
                      HeightRequest="46"
                      BorderRadius="23"
-                     BackgroundColor="#CFB346"
+                     BackgroundColor="#1b0000"
                      Text="Iniciar Sesion"
                      TextColor="White"                    
-                     Margin="10,20"
+                     Margin="20,10"
                      Command="{Binding OpcionesCommand}"/>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

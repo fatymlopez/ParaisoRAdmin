@@ -7,31 +7,75 @@
     <ContentPage.BindingContext>
         <vm:IngresarPVM></vm:IngresarPVM>
     </ContentPage.BindingContext>
+    
     <ScrollView>
         <StackLayout Margin="20">
-            <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
-            <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
+            <Label Text="Agregar nuevo producto" TextColor="#1b0000" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
+            <Label Text="Seleccione una Categoria" Margin="0,20,0,0" 
+                   TextColor="#1b0000" 
+                   FontSize="15"
+                   FontAttributes="Bold"></Label>
 
             <Picker x:Name="category" Title="Seleccione una opcion"
+                    FontAttributes="Bold"
                     ItemDisplayBinding="{Binding nomcategoria}"
                     SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
             </Picker>
-           
-            <Label Text="Nombre del producto"></Label>
-            <Entry Text="{Binding nomproductocomm}"></Entry>
 
-            <Label Text="Ingrese una descripcion"></Label>
-            <Entry Text="{Binding descripcioncomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
+            <Label Text="Nombre del producto" 
+                   TextColor="#1b0000"
+                   FontAttributes="Bold"
+                   FontSize="20">
+            </Label>
+            <Entry Text="{Binding nomproductocomm}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="20">
+            </Entry>
 
-            <Label Text="Ingrese las existencias"></Label>
-            <Entry Text="{Binding existenciascomm}"></Entry>
+            <Label Text="Ingrese una descripcion"
+                   TextColor="#1b0000"
+                   FontAttributes="Bold"
+                   FontSize="20">
+            </Label>
+            <Entry Text="{Binding descripcioncomm}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="20">
+            </Entry>
 
-            <Label Text="Ingrese su Precio"></Label>
-            <Entry Text="{Binding preciocomm}"></Entry>
+            <Label Text="Ingrese las existencias"
+                   TextColor="#1b0000"
+                   FontAttributes="Bold"
+                   FontSize="20">
+            </Label>
+            <Entry Text="{Binding existenciascomm}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="20"></Entry>
 
+            <Label Text="Ingrese su Precio"
+                   TextColor="#1b0000"
+                   FontAttributes="Bold"
+                   FontSize="20">
+            </Label>
             
-                <Button Text="Agregar" Command="{Binding AgregarProductoCommand}"></Button>
+            <Entry Text="{Binding preciocomm}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="20"></Entry>
+
+
+            <Button Text="Agregar"
+                    TextColor="White"
+                    FontSize="20"
+                    HeightRequest="40"
+                    BorderRadius="20"
+                    Margin="20"
+                    Command="{Binding AgregarProductoCommand}"
+                    BackgroundColor="#1b0000">
+            </Button>
             
         </StackLayout>
     </ScrollView>

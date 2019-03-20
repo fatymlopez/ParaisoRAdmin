@@ -35,7 +35,7 @@ namespace ParaisoRealA.View
         {
             HttpClient client = new HttpClient();
 
-            var result = await client.DeleteAsync(String.Concat("http://paraisoreal19.somee.com/api/usuapps/Deleteusuapp/", id));
+            var result = await client.DeleteAsync(String.Concat("http://paraisoreal19.somee.com/api/usuapps/Deleteusuapp/", IDS));
 
 
             if (result.IsSuccessStatusCode)

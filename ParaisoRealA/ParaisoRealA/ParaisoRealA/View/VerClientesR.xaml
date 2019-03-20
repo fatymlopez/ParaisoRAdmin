@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
              x:Class="ParaisoRealA.View.VerClientesR">
 
     
@@ -12,25 +13,39 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <StackLayout Margin="20">
-        <StackLayout>
-            <Label Text="Ver Clientes Registrados" HorizontalOptions="Center" TextColor="Black"></Label>
+    <Frame OutlineColor="#1b0000" CornerRadius="40" Margin="20">
+        <StackLayout Margin="20">
+            <StackLayout>
+                <Label Text="Ver Clientes Registrados" HorizontalOptions="Center" TextColor="#1b0000" FontAttributes="Bold" FontSize="20"></Label>
+            </StackLayout>
+            <ScrollView>
+                <ListView x:Name="ClienteListView"
+                      ItemSelected="ClienteListView_ItemSelected"
+                      Margin="20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding id}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       FontAttributes="Bold">
+                                    </Label>
+                                    <Label Text="-"
+                                       TextColor="Gray"
+                                       FontSize="18">
+                                    </Label>
+                                    <Label Text="{Binding nombrecl}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       FontAttributes="Bold">
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
         </StackLayout>
-        <ScrollView>
-            <ListView x:Name="ClienteListView"
-                      ItemSelected="ClienteListView_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding id}"></Label>
-                                <Label Text="-"></Label>
-                                <Label Text="{Binding nombrecl}"></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
-    </StackLayout>
+    </Frame>
 </ContentPage>

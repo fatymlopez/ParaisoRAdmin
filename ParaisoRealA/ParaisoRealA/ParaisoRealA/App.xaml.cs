@@ -15,9 +15,9 @@ namespace ParaisoRealA
          
           //  MainPage = new NavigationPage(new Login());
             var navigationPage = new NavigationPage(new Login());
-            navigationPage.BarBackgroundColor = Color.Black;
+           // navigationPage.BarBackgroundColor = Color.Black;
 
-            navigationPage.BarTextColor = Color.Black;
+            //navigationPage.BarTextColor = Color.Black;
             MainPage = navigationPage;
         }
 
