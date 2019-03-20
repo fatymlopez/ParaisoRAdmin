@@ -10,7 +10,7 @@
     
     <ScrollView>
         <StackLayout Margin="20">
-            <Label Text="Agregar nuevo producto" TextColor="#1b0000" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
+            <Label Text="Agregar nuevo produ" TextColor="#1b0000" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
             <Label Text="Seleccione una Categoria" Margin="0,20,0,0" 
                    TextColor="#1b0000" 
                    FontSize="15"
