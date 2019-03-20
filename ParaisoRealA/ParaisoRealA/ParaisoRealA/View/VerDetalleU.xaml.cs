@@ -18,7 +18,7 @@ namespace ParaisoRealA.View
 		{
 			InitializeComponent ();
 
-            BorrarUsuCommand = new Command(BorrarMierda);
+            BorrarUsuCommand = new Command(BorrarM);
 
            
 
@@ -31,11 +31,11 @@ namespace ParaisoRealA.View
         #region propiedades
         public string id { get; set; }
         #endregion
-        public async void BorrarMierda()
+        public async void BorrarM()
         {
             HttpClient client = new HttpClient();
 
-            var result = await client.DeleteAsync(String.Concat("http://paraisoreal19.somee.com/api/usuapps/Deleteusuapp/", id));
+            var result = await client.DeleteAsync(String.Concat("http://paraisoreal19.somee.com/api/usuapps/Deleteusuapp/"+ID));
 
 
             if (result.IsSuccessStatusCode)

@@ -12,7 +12,7 @@
             <Label Text="Agregar nuevo producto" TextColor="Black" HorizontalOptions="Center"></Label>
             <Label Text="Seleccione una Categoria" Margin="0,20,0,0"></Label>
 
-            <Picker x:Name="category" Title="Seleccione una opcion"
+            <Picker x:Name="category" Title="Seleccione una opción"
                     ItemDisplayBinding="{Binding nomcategoria}"
                     SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
@@ -25,7 +25,7 @@
             <Entry Text="{Binding descripcioncomm}" Placeholder="(Agregar descripcion si es combo)"></Entry>
 
             <Label Text="Ingrese las existencias"></Label>
-            <Entry Text="{Binding existenciascomm}"></Entry>
+            <Entry Text="{Binding existenciascomm}" x:Name="entryexistencia"></Entry>
 
             <Label Text="Ingrese su Precio"></Label>
             <Entry Text="{Binding preciocomm}"></Entry>

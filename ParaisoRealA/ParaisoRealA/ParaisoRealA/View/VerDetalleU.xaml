@@ -12,7 +12,7 @@
     <StackLayout>
 
         <Label Text="Id Usuario"></Label>
-        <Label Text="{Binding id}"></Label>
+        <Label Text="{Binding id}" x:Name="ID"></Label>
      
         <Label Text="Nombre del usuario"></Label>
         <Label Text="{Binding nombre}"></Label>
