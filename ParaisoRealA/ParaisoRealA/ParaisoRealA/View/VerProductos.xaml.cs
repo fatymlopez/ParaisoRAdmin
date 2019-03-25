@@ -26,7 +26,7 @@ namespace ParaisoRealA.View
             HttpClient client = new HttpClient();
             var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/productoss/Getproductos");
             var verproductos = JsonConvert.DeserializeObject<List<productos>>(response);
-            ListProducts.ItemsSource = verproductos;
+            ListProducts.ItemsSource = verproductos;      
         }
 
         public async void ListProducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -34,17 +34,32 @@ namespace ParaisoRealA.View
             (sender as ListView).SelectedItem = null;
             if (e.SelectedItem != null)
             {
-                //esto es para que en vez que aparesca idcategoria aparesca el nombre
-               // HttpClient clients = new HttpClient();
-                //var idcategoria = e.SelectedItem as categorias;
-               // string cadenasql = $"http://paraisoreal19.somee.com/api/categoriass/Getcategorias/{0}",{ idcategoria.id};
-               // var response = await clients.GetStringAsync($"http://paraisoreal19.somee.com/api/categoriass/Getcategorias/1");
-               // var vercategorias = JsonConvert.DeserializeObject<categorias>(response);
-
-
-
                 await App.Current.MainPage.Navigation.PushAsync(new VerDetalleP { BindingContext = e.SelectedItem });
             }
         }
+
+        public async void SearchProducts_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/productoss/Getproductos");
+            var verprodu = JsonConvert.DeserializeObject<List<productos>>(response);
+            ListProducts.ItemsSource = verprodu;
+
+
+            ListProducts.BeginRefresh();
+
+            
+           
+                //if (string.IsNullOrWhiteSpace(e.NewTextValue))
+                //ListProducts.ItemsSource = verprodu;
+                //else
+                //ListProducts.ItemsSource = verprodu.Where(i => i.nomproducto.Contains(e.NewTextValue));
+
+
+                ListProducts.EndRefresh();
+
+        }
+           
+
     }
 }

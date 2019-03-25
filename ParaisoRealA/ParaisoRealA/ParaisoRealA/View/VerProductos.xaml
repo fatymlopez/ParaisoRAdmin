@@ -17,11 +17,17 @@
         <StackLayout Margin="20">
             <StackLayout>
                 <Label Text="Ver Productos" HorizontalOptions="Center" TextColor="Black"></Label>
-                <Entry Placeholder="Buscar"></Entry>
+                
+            <SearchBar
+                    x:Name="SearchProducts"
+                    TextChanged="SearchProducts_TextChanged">
+            </SearchBar>
+                
             </StackLayout>
         <ScrollView>
             <ListView x:Name="ListProducts"
                       ItemSelected="ListProducts_ItemSelected">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
