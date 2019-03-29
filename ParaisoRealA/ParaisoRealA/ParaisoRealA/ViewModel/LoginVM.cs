@@ -1,6 +1,10 @@
-﻿using ParaisoRealA.View;
+﻿using Newtonsoft.Json;
+using ParaisoRealA.Model;
+using ParaisoRealA.Model.Modeldb;
+using ParaisoRealA.View;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using Xamarin.Forms;
 
@@ -10,19 +14,13 @@ namespace ParaisoRealA.ViewModel
     {
         public LoginVM()
         {
-            OpcionesCommand = new Command(notificaciones);
+
 
         }
 
-        public async void notificaciones()
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
-        }
 
-        #region comandos
-        public Command OpcionesCommand { get; set; }
-        #endregion
     }
-
-
 }
+
+
+

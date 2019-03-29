@@ -21,8 +21,8 @@
             <Label Text="Precio"></Label>
             <Label Text="{Binding precio}"></Label>
 
-            <Button Text="Editar" Command="{Binding EditarPCommand}"></Button>
-            
+            <!--<Button Text="Editar" Command="{Binding EditarPCommand}"></Button>-->
+            <Button x:Name="btneditar" Clicked="Btneditar_Clicked"></Button>            
         </StackLayout>
         
     </ContentPage.Content>

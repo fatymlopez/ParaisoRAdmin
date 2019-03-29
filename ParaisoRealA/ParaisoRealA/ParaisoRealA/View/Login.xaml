@@ -8,24 +8,27 @@
              BackgroundColor="White"
              x:Class="ParaisoRealA.View.Login">
 
-    <ContentPage.BindingContext>
-        <VM:LoginVM></VM:LoginVM>
-    </ContentPage.BindingContext>
-
+ 
     <ScrollView>
     <StackLayout Margin="20">
             <Image Source="Logo.png">
             </Image>
         <StackLayout Margin="20">
-       
-            
-            <local:CtrlEntry 
-                             Text="{Binding usuarioproperty}"
+
+                <ActivityIndicator
+                        x:Name="indicator"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+                </ActivityIndicator>
+                <local:CtrlEntry 
+                             Text="{Binding usuario}"
                              Placeholder="Usuario" 
                              Image="user"
                              ImageHeigth="15"
                              ImageWidth="15"
-                             HorizontalOptions="FillAndExpand">
+                             HorizontalOptions="FillAndExpand"
+                             x:Name="usu">
 
             </local:CtrlEntry>
         </StackLayout>
@@ -38,7 +41,7 @@
                 </Grid.ColumnDefinitions>
 
                 <local:CtrlEntry
-                               Text="{Binding passproperty}"
+                               Text="{Binding passusu}"
                                Placeholder="Constraseña"
                                IsPassword="True"
                                x:Name="Password"
@@ -72,7 +75,8 @@
                      Text="Iniciar Sesion"
                      TextColor="White"                    
                      Margin="20,10"
-                     Command="{Binding OpcionesCommand}"/>
+                     x:Name="btnsesion"
+                     Clicked="Btnsesion_Clicked"/>
     </StackLayout>
     </ScrollView>
 </ContentPage>

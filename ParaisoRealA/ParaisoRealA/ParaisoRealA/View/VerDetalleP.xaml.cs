@@ -18,5 +18,11 @@ namespace ParaisoRealA.View
            
 
         }
+
+        private void Btneditar_Clicked(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace ParaisoRealA.ViewModel
         {
             usuapp newuser = new usuapp()
             {
-                nombre = nomproperty,
+                nombre =  nomproperty,
                 usuario = usuproperty,
                 emailusu = emailproperty,
                 passusu = passproperty
