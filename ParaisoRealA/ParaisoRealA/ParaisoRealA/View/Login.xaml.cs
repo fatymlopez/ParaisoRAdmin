@@ -21,11 +21,13 @@ namespace ParaisoRealA.View
 			InitializeComponent ();
 		}
 
+        //para que se vea la contraseña
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Password.IsPassword = Password.IsPassword ? false : true;
         }
 
+        //validacion 
         public async void Btnsesion_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(usu.Text))
@@ -46,26 +48,40 @@ namespace ParaisoRealA.View
             //obtener campos...
 
             indicator.IsRunning = true;
-            btnsesion.IsEnabled = false;
-            var client = new HttpClient();
-            string URL = string.Format("http://paraisoreal19.somee.com/api/usuapps/Getusuapp");
-            var miArreglo = await client.GetStringAsync(URL);
-
-            var vercliente = JsonConvert.DeserializeObject<List<usuapp>>(miArreglo);
-            foreach (var item in vercliente)
+            try
             {
-                if (item.usuario == usu.Text && item.passusu == Password.Text)
+                btnsesion.IsEnabled = false;
+                var client = new HttpClient();
+                string URL = string.Format("http://paraisoreal19.somee.com/api/usuapps/Getusuapp");
+                var miArreglo = await client.GetStringAsync(URL);
+
+                var vercliente = JsonConvert.DeserializeObject<List<usuapp>>(miArreglo);
+                foreach (var item in vercliente)
                 {
-                    Constantes.usuario = item.usuario;
-                    Constantes.contraseña = item.passusu;
-                    Constantes.nombreu = item.nombre;
-                    Constantes.idusuario = item.id;
-                    break;
+                    if (item.usuario == usu.Text && item.passusu == Password.Text)
+                    {
+                        Constantes.usuario = item.usuario;
+                        Constantes.contraseña = item.passusu;
+                        Constantes.nombreu = item.nombre;
+                        Constantes.idusuario = item.id;
+                        break;
+                    }
                 }
+
+                btnsesion.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "No hay Conexion", "Ok");
+                btnsesion.IsEnabled = true;
+                indicator.IsRunning = false;
+                return;
+
             }
 
+           
             indicator.IsRunning = false;
-            btnsesion.IsEnabled = true;
+         
 
             if (Constantes.idusuario == 0)
             {
@@ -80,6 +96,8 @@ namespace ParaisoRealA.View
                 await Application.Current.MainPage.Navigation.PushAsync(new MasterMenu());
 
             }
+
+
         }
     }
 }
