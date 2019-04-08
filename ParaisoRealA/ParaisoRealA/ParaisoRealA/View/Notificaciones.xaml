@@ -2,9 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="White"
+             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.Notificaciones">
 
-   
+    <ContentPage.BindingContext>
+        <vm:NotificacionVM></vm:NotificacionVM>
+    </ContentPage.BindingContext>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.Icon>
@@ -12,22 +16,88 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    <ScrollView>
+    <StackLayout BackgroundColor="White">
+        <!-- Place new controls here -->
 
-    <StackLayout Margin="20">
-        <StackLayout>
-            <Label Text="Notificaciones" HorizontalOptions="Center" TextColor="Black"></Label>
+        <StackLayout Margin="20,20,10,10">
+          
+            <Label Text="Ver Notificaciones"
+                   FontAttributes="Bold"
+                   FontSize="Large">
+            </Label>
         </StackLayout>
-        <ScrollView>
-            <ListView>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell></ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
-        <StackLayout>
-            <Button Text="Elminar Notificaciones del Dia" Command="{Binding NotificacionCommand}"></Button>
+        <StackLayout Padding="20">
+            <!--DESAYUNO-->
+            <Frame 
+                BackgroundColor="#FF5722" 
+                CornerRadius="20">
+
+                <StackLayout>
+                    <Image Source="desatipico.png"
+                                   HeightRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"
+                                   WidthRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"></Image>
+                    <Label 
+                        Text="Ver Ordenes Desayunos" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="38"
+                        HorizontalOptions="CenterAndExpand">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                                    Command="{Binding Tapcommand}"
+                                    NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+            <!--ALMUERZO-->
+            <Frame 
+                BackgroundColor="#F44336" 
+                CornerRadius="20">
+                <StackLayout>
+                    <Image Source="Almuerzo.png"
+                                   
+                                   HeightRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"
+                                   WidthRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"></Image>
+                    <Label 
+                        Text=" Ver Ordenes Almuerzos" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="38"
+                        HorizontalOptions="CenterAndExpand"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                                    Command="{Binding Tapcommand2}"
+                                    NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+            <!--ANTOJITOS-->
+            <Frame 
+                BackgroundColor="#FFC107" 
+                CornerRadius="20">
+                <StackLayout>
+                    <Image Source="Antojos.png"
+                                    HeightRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"
+                                    WidthRequest="{OnIdiom Default=100, Phone=100, Tablet=128}"></Image>
+                    <Label 
+                        Text=" Ver Ordenes Antojitos" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="38"
+                        HorizontalOptions="CenterAndExpand"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                                    Command="{Binding Tapcommand3}"
+                                    NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+
         </StackLayout>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

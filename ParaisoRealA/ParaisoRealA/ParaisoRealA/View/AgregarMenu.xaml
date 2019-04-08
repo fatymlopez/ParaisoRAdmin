@@ -4,9 +4,7 @@
              xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.AgregarMenu">
 
-    <ContentPage.BindingContext>
-        <vm:AgregarMenuVM></vm:AgregarMenuVM>
-    </ContentPage.BindingContext>
+ 
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.Icon>

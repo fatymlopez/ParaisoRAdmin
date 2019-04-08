@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ParaisoRealA.Model;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,7 +28,7 @@ namespace ParaisoRealA.View
         {
             HttpClient client = new HttpClient();
             
-            var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/clientes/Getcliente");
+            var response = await client.GetStringAsync(Constantes.Base + "/api/clientes/Getcliente");
             var vercliente = JsonConvert.DeserializeObject<List<cliente>>(response);
             ClienteListView.ItemsSource = vercliente;
         }

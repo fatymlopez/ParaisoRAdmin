@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.NDesayuno">
+   
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Picker x:Name="category" Title="Seleccione una Ubicacion"
+                    FontAttributes="Bold"
+                    ItemDisplayBinding="{Binding nomubicacion}"
+                    SelectedItem="{Binding selectubicacion}"
+                    ItemsSource="{Binding Itemubicacion}" >
+
+            </Picker>-->
+
+            <Button
+                x:Name="univocd"
+                Text="Ciudad Universitaria UNIVO"
+                Clicked="Univocd_Clicked">
+                
+            </Button>
+            <Button
+                x:Name="munivo"
+                Text="Maestrias UNIVO"
+                Clicked="Munivo_Clicked">
+
+            </Button>
+
+            <Button
+                x:Name="uma"
+                Text="Universidad Modular Abierta UMA"
+                Clicked="Uma_Clicked">
+
+            </Button>
+
+
+            <ListView
+                ></ListView>
+            <ListView x:Name="PedidosUbicacion"
+                      ItemSelected="PedidosUbicacion_ItemSelected"
+                      Margin="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding idreservacion}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       FontAttributes="Bold">
+                                </Label>
+                                <!--<Label Text="-"
+                                       TextColor="Gray"
+                                       FontSize="18">
+                                </Label>
+                                <Label Text="{Binding nombrecl}"
+                                       TextColor="Gray"
+                                       FontSize="18"
+                                       FontAttributes="Bold">
+                                </Label>-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

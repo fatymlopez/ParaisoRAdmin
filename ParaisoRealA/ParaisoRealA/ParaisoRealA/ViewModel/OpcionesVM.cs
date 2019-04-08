@@ -19,12 +19,15 @@ namespace ParaisoRealA.ViewModel
             All = new List<OpcionesVM>
             {
              
-                new OpcionesVM(typeof(View.IngresarProducto), "Ingresar Producto", ""),
-                new OpcionesVM(typeof(View.VerProductos), "Ver Productos Ingresados", ""),
-                new OpcionesVM(typeof(View.IngresarUsuario), "Ingresar Usuario", ""),
-                new OpcionesVM(typeof(View.VerUsuario), "Ver Usuarios Registrados", ""),
-                new OpcionesVM(typeof(View.VerClientesR), "Ver Clientes Registrados", ""),
-                
+                new OpcionesVM(typeof(View.IngresarProducto), "Ingresar Producto", "ingresoproduct"),
+                new OpcionesVM(typeof(View.VerProductos), "Ver Productos Ingresados", "searchfood"),
+                new OpcionesVM(typeof(View.IngresarUsuario), "Ingresar Usuario", "user"),
+                new OpcionesVM(typeof(View.VerUsuario), "Ver Usuarios Registrados", "searchuserapp"),
+                new OpcionesVM(typeof(View.VerClientesR), "Ver Clientes Registrados", "searchuser"),
+                new OpcionesVM(typeof(View.Reportevta), "Ver Reporte Ventas", "reportapp"),
+                new OpcionesVM(typeof(View.Login), "Cerrar Sesion", "salir"),
+
+
 
             };
         }

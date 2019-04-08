@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ParaisoRealA.Model;
 using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace ParaisoRealA.View
         public async  void GetProductos()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/productoss/Getproductos");
+            var response = await client.GetStringAsync(Constantes.Base + "/api/productoss/Getproductos");
             var verproductos = JsonConvert.DeserializeObject<List<productos>>(response);
             ListProducts.ItemsSource = verproductos;      
         }
@@ -41,7 +42,7 @@ namespace ParaisoRealA.View
         public async void SearchProducts_TextChanged(object sender, TextChangedEventArgs e)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/productoss/Getproductos");
+            var response = await client.GetStringAsync(Constantes.Base +"/api/productoss/Getproductos");
             var verprodu = JsonConvert.DeserializeObject<List<productos>>(response);
             ListProducts.ItemsSource = verprodu;
 

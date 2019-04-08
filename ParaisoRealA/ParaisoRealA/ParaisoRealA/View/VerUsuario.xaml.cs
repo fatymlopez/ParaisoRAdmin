@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ParaisoRealA.Model;
 using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace ParaisoRealA.View
         public async void GetListUsuario()
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("http://paraisoreal19.somee.com/api/usuapps/Getusuapp");
+            var response = await client.GetStringAsync(Constantes.Base + "/api/usuapps/Getusuapp");
             var verusuario = JsonConvert.DeserializeObject<List<usuapp>>(response);
             UsuarioAppListView.ItemsSource = verusuario;
             

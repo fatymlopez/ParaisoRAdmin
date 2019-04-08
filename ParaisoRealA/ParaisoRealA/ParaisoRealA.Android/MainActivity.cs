@@ -21,7 +21,7 @@ namespace ParaisoRealA.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
 
-            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(27, 0, 0));
+            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(0, 188, 212));
         }
     }
 }

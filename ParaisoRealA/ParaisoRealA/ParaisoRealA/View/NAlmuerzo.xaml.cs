@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ParaisoRealA.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DetalleMenus : ContentPage
+	public partial class NAlmuerzo : ContentPage
 	{
-		public DetalleMenus ()
+		public NAlmuerzo ()
 		{
 			InitializeComponent ();
 		}

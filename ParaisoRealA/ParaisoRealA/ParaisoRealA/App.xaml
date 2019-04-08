@@ -4,7 +4,7 @@
              x:Class="ParaisoRealA.App">
     <Application.Resources>
         <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="#1b0000" />
+            <Setter Property="BarBackgroundColor" Value="#00BCD4" />
             <Setter Property="BarTextColor" Value="White" />
         </Style>
     </Application.Resources>

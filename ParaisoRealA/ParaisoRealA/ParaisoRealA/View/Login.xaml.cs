@@ -24,7 +24,7 @@ namespace ParaisoRealA.View
         //para que se vea la contraseña
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            Password.IsPassword = Password.IsPassword ? false : true;
+            Passwordss.IsPassword = Passwordss.IsPassword ? false : true;
         }
 
         //validacion 
@@ -38,10 +38,10 @@ namespace ParaisoRealA.View
                 return;
             }
 
-            if (string.IsNullOrEmpty(Password.Text))
+            if (string.IsNullOrEmpty(Passwordss.Text))
             {
                 await App.Current.MainPage.DisplayAlert("Error", "Debe Ingresar una contraseña", "Ok");
-                Password.Focus();
+                Passwordss.Focus();
                 return;
             }
 
@@ -52,13 +52,13 @@ namespace ParaisoRealA.View
             {
                 btnsesion.IsEnabled = false;
                 var client = new HttpClient();
-                string URL = string.Format("http://paraisoreal19.somee.com/api/usuapps/Getusuapp");
+                string URL = string.Format( Constantes.Base + "/api/usuapps/Getusuapp");
                 var miArreglo = await client.GetStringAsync(URL);
 
                 var vercliente = JsonConvert.DeserializeObject<List<usuapp>>(miArreglo);
                 foreach (var item in vercliente)
                 {
-                    if (item.usuario == usu.Text && item.passusu == Password.Text)
+                    if (item.usuario == usu.Text && item.passusu == Passwordss.Text)
                     {
                         Constantes.usuario = item.usuario;
                         Constantes.contraseña = item.passusu;
@@ -86,8 +86,8 @@ namespace ParaisoRealA.View
             if (Constantes.idusuario == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Datos no validos", "Ok");
-                Password.Text = string.Empty;
-                Password.Focus();
+                Passwordss.Text = string.Empty;
+                Passwordss.Focus();
                 return;
             }
             else

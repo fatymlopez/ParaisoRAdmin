@@ -16,26 +16,25 @@
                 ItemsSource="{x:Static local:OpcionesVM.All}"
                 ItemSelected="OnListViewItemSelected"
                        BackgroundColor="White">
-                
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout VerticalOptions="FillAndExpand"
                                                  Orientation="Horizontal"
-                                                
-                                                 Spacing="20"
                                                  BackgroundColor="White">
 
                                 <Image  Source="{Binding Icono}"
-                                                WidthRequest="70"
-                                                HeightRequest="70"
-                                                VerticalOptions="Center">
+                                        WidthRequest="{OnIdiom Default=60, Phone=60, Tablet=80}"
+                                        HeightRequest="{OnIdiom Default=60, Phone=60, Tablet=80}"
+                                        VerticalOptions="Center">
                                 </Image>
 
                                 <Label Text="{Binding Titulo}"
-                                               FontSize="Medium"
+                                               FontSize="18"
                                                VerticalOptions="Center"
                                                TextColor="Black"
+                                               FontAttributes="Bold"
                                                BackgroundColor="White">
 
                                 </Label>
@@ -43,7 +42,6 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
             </ListView>
         </StackLayout>
     </ScrollView>
