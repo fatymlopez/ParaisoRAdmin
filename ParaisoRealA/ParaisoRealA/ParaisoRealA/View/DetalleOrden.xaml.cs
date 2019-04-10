@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ParaisoRealA.Model.Modeldb;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +12,13 @@ using Xamarin.Forms.Xaml;
 namespace ParaisoRealA.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NAlmuerzo : ContentPage
+	public partial class DetalleOrden : ContentPage
 	{
-		public NAlmuerzo ()
+		public DetalleOrden ()
 		{
 			InitializeComponent ();
 		}
+
+       
 	}
 }

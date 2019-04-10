@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ParaisoRealA.Model;
 using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace ParaisoRealA.ViewModel
             var json = JsonConvert.SerializeObject(newuser);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
-            var result = await client.PostAsync("http://paraisoreal19.somee.com/api/usuapps/Postusuapp", content);
+            var result = await client.PostAsync(Constantes.Base + "/api/usuapps/Postusuapp", content);
 
             if (result.StatusCode == HttpStatusCode.Created)
             {

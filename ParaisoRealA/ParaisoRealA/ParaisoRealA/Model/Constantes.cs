@@ -13,7 +13,7 @@ namespace ParaisoRealA.Model
             public static string nombreu { get; set; }
 
 
-           public static string Base = "http://gnstecnology-001-site3.etempurl.com/";
+           public static string Base = "http://gnstecnology-001-site3.etempurl.com";
 
 
     }

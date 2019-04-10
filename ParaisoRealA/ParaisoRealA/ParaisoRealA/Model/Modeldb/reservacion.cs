@@ -8,7 +8,12 @@ namespace ParaisoRealA.Model.Modeldb
     {
         public int id { get; set; }
         public int idcliente { get; set; }
-        public int total { get; set; }
-        public int estado { get; set; }
+        public decimal total { get; set; }
+        public int? estado { get; set; }
+
+        public cliente cliente { get; set; }
+
+        public detallereservacion detallereservacion { get; set; }
+
     }
 }

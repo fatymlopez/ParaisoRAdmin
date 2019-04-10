@@ -10,7 +10,16 @@ namespace ParaisoRealA.Model.Modeldb
         public int idubicacion { get; set; }
         public int idreservacion { get; set; }
         public DateTime fecha { get; set; }
-        public int  estado { get; set; }
+        public int?  estado { get; set; }
+
+        public cliente cliente { get; set; }
+        public List<detallereservacion> detallereservacion { get; set; }
+       
+
+        public reservacion reservacion { get; set; }
+
+       
+       
 
     }
 }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParaisoRealA.View.DetalleOrden">
+    <ContentPage.Content>
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding reservacion.detallereservacion.idreservacion}"></Label>
+                        <Label Text="{Binding reservacion.detallereservacion.productos.nomproducto}"></Label>
+                        <Label Text="{Binding reservacion.detallereservacion.cantidad}"></Label>
+                        <Label Text="{Binding reservacion.detallereservacion.subtotal}"></Label>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+            <!--<Label Text="{Binding reservacion.total}"></Label>-->
+
+         
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

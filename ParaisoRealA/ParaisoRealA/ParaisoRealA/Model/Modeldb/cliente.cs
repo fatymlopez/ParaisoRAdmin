@@ -11,5 +11,7 @@ namespace ParaisoRealA.Model.Modeldb
         public string cellcl { get; set; }
         public string emailcl { get; set; }
         public string passcl { get; set; }
+
+       
     }
 }
