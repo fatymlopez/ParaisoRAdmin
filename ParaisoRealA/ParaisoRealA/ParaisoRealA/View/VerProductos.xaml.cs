@@ -44,18 +44,17 @@ namespace ParaisoRealA.View
             HttpClient client = new HttpClient();
             var response = await client.GetStringAsync(Constantes.Base +"/api/productoss/Getproductos");
             var verprodu = JsonConvert.DeserializeObject<List<productos>>(response);
-            ListProducts.ItemsSource = verprodu;
+            var newproductList = verprodu.Where(i => i.nomproducto.Contains(e.NewTextValue));
+
+            ListProducts.ItemsSource = newproductList;
 
 
             ListProducts.BeginRefresh();
 
-            
-           
                 //if (string.IsNullOrWhiteSpace(e.NewTextValue))
                 //ListProducts.ItemsSource = verprodu;
                 //else
                 //ListProducts.ItemsSource = verprodu.Where(i => i.nomproducto.Contains(e.NewTextValue));
-
 
                 ListProducts.EndRefresh();
 

@@ -25,9 +25,9 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding id}"></Label>
-                            <Label Text="{Binding reservacion.idcliente}"></Label>
-                            <Label Text="{Binding reservacion.cliente.nombrecl}"></Label>
-                            <Label Text="{Binding reservacion.total}"></Label>
+                            <Label Text="{Binding idcliente}"></Label>
+                            <Label Text="{Binding cliente.nombrecl}"></Label>
+                            <Label Text="{Binding total}"></Label>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

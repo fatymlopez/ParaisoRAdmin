@@ -1,4 +1,5 @@
-﻿using ParaisoRealA.Model.Modeldb;
+﻿using ParaisoRealA.Model;
+using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace ParaisoRealA.View
         {
             HttpClient client = new HttpClient();
 
-            var result = await client.DeleteAsync(String.Concat("http://paraisoreal19.somee.com/api/usuapps/Deleteusuapp/", IDS));
+            var result = await client.DeleteAsync(String.Concat(Constantes.Base +"/api/usuapps/Deleteusuapp/", IDS));
 
 
             if (result.IsSuccessStatusCode)

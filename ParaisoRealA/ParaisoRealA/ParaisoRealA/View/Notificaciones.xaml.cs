@@ -24,22 +24,19 @@ namespace ParaisoRealA.View
         public async void CDUNIVO_Clicked(object sender, EventArgs e)
         {
             var client = new HttpClient();
-            string URL = string.Format(Constantes.Base + "/api/ordens/Getorden");
+            string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
             var miArreglo = await client.GetStringAsync(URL);
-            var verordenes = JsonConvert.DeserializeObject<List<orden>>(miArreglo);
+            var verordenes = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo);
             var nuevalista = verordenes.Where(a => a.idubicacion == 1 && a.estado == 1);
             ListNotificaciones.ItemsSource = nuevalista;
-
-
-
         }
 
         public async void MUNIVO_Clicked(object sender, EventArgs e)
         {
             var client = new HttpClient();
-            string URL = string.Format(Constantes.Base + "/api/ordens/Getorden");
+            string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
             var miArreglo = await client.GetStringAsync(URL);
-            var verordenes = JsonConvert.DeserializeObject<List<orden>>(miArreglo);
+            var verordenes = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo);
             var nuevalista = verordenes.Where(a => a.idubicacion == 2 && a.estado == 1);
             ListNotificaciones.ItemsSource = nuevalista;
         }

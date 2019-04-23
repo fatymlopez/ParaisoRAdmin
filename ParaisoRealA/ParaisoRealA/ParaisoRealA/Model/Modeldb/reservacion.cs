@@ -10,10 +10,10 @@ namespace ParaisoRealA.Model.Modeldb
         public int idcliente { get; set; }
         public decimal total { get; set; }
         public int? estado { get; set; }
-
+        public int? idubicacion { get; set; }
         public cliente cliente { get; set; }
 
-        public detallereservacion detallereservacion { get; set; }
+        //public static IList<detallereservacion> detallereservacion { get; set; }
 
     }
 }

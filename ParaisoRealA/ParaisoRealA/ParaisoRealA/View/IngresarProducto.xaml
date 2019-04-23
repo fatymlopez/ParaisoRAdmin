@@ -7,76 +7,81 @@
     <ContentPage.BindingContext>
         <vm:IngresarPVM></vm:IngresarPVM>
     </ContentPage.BindingContext>
-    
+   
     <ScrollView>
-        <StackLayout Margin="20">
-            <Label Text="Agregar nuevo produ" TextColor="#1b0000" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
-            <Label Text="Seleccione una Categoria" Margin="0,20,0,0" 
-                   TextColor="#1b0000" 
-                   FontSize="15"
-                   FontAttributes="Bold"></Label>
-
-            <Picker x:Name="category" Title="Seleccione una opcion"
+        <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
+            <StackLayout Margin="20">
+            <Label Text="Agregar Nuevo Producto" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold" 
+                   FontSize="20">
+            </Label>
+            <Label Text="Seleccione una categoria" Margin="0,20,0,0" 
+                   FontSize="20"
+                   FontAttributes="Bold">
+            </Label>
+            <Picker x:Name="category" 
+                    Title="Seleccione una opcion"
+                    TextColor="Black"
                     FontAttributes="Bold"
                     ItemDisplayBinding="{Binding nomcategoria}"
                     SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
             </Picker>
-
             <Label Text="Nombre del producto" 
-                   TextColor="#1b0000"
-                   FontAttributes="Bold"
-                   FontSize="20">
+                   FontSize="20"
+                   FontAttributes="Bold">
             </Label>
             <Entry Text="{Binding nomproductocomm}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="20">
+                   TextColor="Black"
+                   FontSize="20"
+                   Keyboard="Text"
+                   FontAttributes="Bold">
             </Entry>
-
-            <Label Text="Ingrese una descripcion"
-                   TextColor="#1b0000"
-                   FontAttributes="Bold"
-                   FontSize="20">
+            <Label Text="Ingrese una descripción"
+                   FontSize="20"
+                   FontAttributes="Bold">
             </Label>
             <Entry Text="{Binding descripcioncomm}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="20">
+                   TextColor="Black"
+                   FontSize="20"
+                   Keyboard="Text"
+                   FontAttributes="Bold">
             </Entry>
-
-            <Label Text="Ingrese las existencias"
-                   TextColor="#1b0000"
-                   FontAttributes="Bold"
-                   FontSize="20">
+            <Label Text="Ingrese un estado"
+                   FontSize="20"
+                   FontAttributes="Bold">
             </Label>
-            <Entry Text="{Binding existenciascomm}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="20"></Entry>
+            <Picker 
+                    Title="Seleccione una opcion"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    ItemDisplayBinding="{Binding nomestado}"
+                    SelectedItem="{Binding selectestado}"
+                    ItemsSource="{Binding Itemestado}">
+            </Picker>
 
-            <Label Text="Ingrese su Precio"
-                   TextColor="#1b0000"
-                   FontAttributes="Bold"
-                   FontSize="20">
+            <Label Text="Ingrese su precio"
+                   FontSize="20"
+                   FontAttributes="Bold">
             </Label>
-            
             <Entry Text="{Binding preciocomm}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="20"></Entry>
-
-
-            <Button Text="Agregar"
+                   TextColor="Black"
+                   FontSize="20"
+                   Keyboard="Numeric"
+                   FontAttributes="Bold">
+            </Entry>
+            <Button Text="Agregar Producto"
                     TextColor="White"
-                    FontSize="20"
                     HeightRequest="40"
                     BorderRadius="20"
                     Margin="20"
                     Command="{Binding AgregarProductoCommand}"
-                    BackgroundColor="#1b0000">
+                    BackgroundColor="#8BC34A">
             </Button>
-            
+                
         </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

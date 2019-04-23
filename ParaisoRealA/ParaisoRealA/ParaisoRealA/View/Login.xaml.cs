@@ -92,7 +92,7 @@ namespace ParaisoRealA.View
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert("Mensaje", "Bienvenido" + Constantes.nombreu, "ok");
+                await App.Current.MainPage.DisplayAlert("Mensaje", "Bienvenido" +""+ Constantes.nombreu, "ok");
                 await Application.Current.MainPage.Navigation.PushAsync(new MasterMenu());
 
             }

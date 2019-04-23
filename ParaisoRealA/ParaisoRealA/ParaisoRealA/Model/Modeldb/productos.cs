@@ -11,9 +11,10 @@ namespace ParaisoRealA.Model.Modeldb
         public int idcategoria { get; set; }
         public string nomproducto { get; set; }
         public string descripcion { get; set; }
-        public int existencia { get; set; }
         public decimal precio { get; set; }
+        public int idestado { get; set; }
         public categorias categorias { get; set; }
+        public estados estados { get; set; }
 
         
     }

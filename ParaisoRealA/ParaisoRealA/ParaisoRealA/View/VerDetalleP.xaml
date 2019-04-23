@@ -2,28 +2,138 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.VerDetalleP">
-    
-    
-    <ContentPage.Content>
+
+    <ScrollView>
         <StackLayout>
-            <Label Text="Categoria"></Label>
-            <Label Text="{Binding categorias.nomcategoria}"></Label>
+            <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
+                <StackLayout Margin="20">
+                    <Label Text="Detalle Producto Seleccionado" 
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black">
+                    </Label>
 
-            <Label Text="Nombre del Producto"></Label>
-            <Label Text="{Binding nomproducto}"></Label>
+                    <Label Text="ID del Proucto"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                    </Label>
+                    <Label Text="{Binding id}"
+                           x:Name="idprodu"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black">
+                    </Label>
 
-            <Label Text="Existencias"></Label>
-            <Label Text="{Binding descripcion}"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Categoria del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                        </Label>
 
-            <Label Text="Precio"></Label>
-            <Label Text="{Binding existencia}"></Label>
+                        <Label Text="{Binding categorias.nomcategoria}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black">
+                        </Label>
+                    </StackLayout>
+                   
+                    <Picker x:Name="categorys" 
+                            Title="Seleccione una opcion"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            ItemDisplayBinding="{Binding nomcategoria}"
+                            SelectedItem="{Binding selectcategory}"
+                            ItemsSource="{Binding Itemcategory}">
+                    </Picker>
+                    
+                    
+                    <Label Text="Nombre del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                    </Label>
+                    <Entry Text="{Binding nomproducto}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black"
+                           x:Name="nomp">
+                    </Entry>
+                    <Label Text="Descripcion del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                    </Label>
+                    <Entry Text="{Binding descripcion}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black"
+                           x:Name="desc">
+                    </Entry>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Estado del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                        </Label>
 
-            <Label Text="Precio"></Label>
-            <Label Text="{Binding precio}"></Label>
+                        <Label Text="{Binding estados.nomestado}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black">
+                        </Label>
+                    </StackLayout>
+                   
+                    <Picker Title="Seleccione una opcion"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            ItemDisplayBinding="{Binding nomestado}"
+                            SelectedItem="{Binding selectestado}"
+                            ItemsSource="{Binding Itemestado}">
+                    </Picker>
+                   
+                    <Label Text="Precio"
+                           FontAttributes="Bold"
+                           FontSize="20">
+                    </Label>
+ 
+                    <Entry Text="{Binding precio}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black"
+                           x:Name="pricep">
+                    </Entry>
+                   
+                    
 
-            <!--<Button Text="Editar" Command="{Binding EditarPCommand}"></Button>-->
-            <Button x:Name="btneditar" Clicked="Btneditar_Clicked"></Button>            
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Button x:Name="btneditar" 
+                                    Clicked="Btneditar_Clicked"
+                                    Text="Actualizar Producto"
+                                    BackgroundColor="#8BC34A"
+                                    TextColor="White"
+                                    BorderRadius="20"
+                                    Grid.Column="0"
+                                    Grid.Row="0">
+                            </Button>
+                            <Button x:Name="bteliminar" 
+                                    Clicked="Bteliminar_Clicked"
+                                    Text="Eliminar Producto"
+                                    BackgroundColor="#8BC34A"
+                                    TextColor="White"
+                                    BorderRadius="20"
+                                    Grid.Column="1"
+                                    Grid.Row="0">
+                            </Button>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </StackLayout>
-        
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
