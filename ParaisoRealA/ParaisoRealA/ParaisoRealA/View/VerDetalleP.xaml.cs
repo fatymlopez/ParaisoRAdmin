@@ -3,12 +3,9 @@ using ParaisoRealA.Model;
 using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,9 +19,22 @@ namespace ParaisoRealA.View
             InitializeComponent();
 
             BindingContext = this;
+
+            //getpickercat();
+            //getpickerest();
+
+        }
+
+        protected override void OnAppearing()
+        {
             getpickercat();
             getpickerest();
 
+
+            
+
+
+            base.OnAppearing();
         }
 
         public async void getpickerest()
@@ -33,7 +43,8 @@ namespace ParaisoRealA.View
             string URL = string.Format(Constantes.Base + "/api/estadoss/Getestados");
             var miArreglostado = await client1.GetStringAsync(URL);
             Itemestado = JsonConvert.DeserializeObject<List<estados>>(miArreglostado);
-            Debug.WriteLine(Itemestado);
+            estadoselec.ItemsSource = Itemestado;
+            //Debug.WriteLine(Itemestado);
         }
 
         public async void getpickercat()
@@ -42,13 +53,18 @@ namespace ParaisoRealA.View
             string URL = string.Format(Constantes.Base + "/api/categoriass/Getcategorias");
             var miArreglocategorias = await client2.GetStringAsync(URL);
             Itemcategory = JsonConvert.DeserializeObject<List<categorias>>(miArreglocategorias);
-            Debug.WriteLine(Itemcategory);
+            categorys.ItemsSource = Itemcategory;
+
+            //Debug.WriteLine(Itemcategory);
 
         }
 
         public async void Btneditar_Clicked(object sender, EventArgs e)
         {
-            var actualizarp = new productos
+            idp = Convert.ToInt32(idca.Text);
+            ide = Convert.ToInt32(idest.Text);
+
+            productos actualizarp = new productos
             {
                 id = Convert.ToInt32(idprodu.Text),
                 idcategoria = this.idp,
@@ -59,27 +75,46 @@ namespace ParaisoRealA.View
 
             };
 
-            var url = string.Format(Constantes.Base + "/api/productoss/Putproductos/" + idprodu);
             var json = JsonConvert.SerializeObject(actualizarp);
-            var contenta = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpClient client3 = new HttpClient();
-            HttpResponseMessage resulta = null;
-            resulta = await client3.PutAsync(url, contenta);
+            var conn = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient cli = new HttpClient();
+            var result = await cli.PutAsync(string.Concat(Constantes.Base + "/api/productoss/Putproductos/", idprodu.Text), conn);
 
-            if (resulta.IsSuccessStatusCode)
+            if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
+
 
             }
         }
 
         public async void Bteliminar_Clicked(object sender, EventArgs e)
         {
+          
+           
+            
+                var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Yes", "No");
+                //Debug.WriteLine("Answer: " + answer);
+          
+                if (answer == true)
+                {
+                    HttpClient borrarcli = new HttpClient();
+                    var resultb = await borrarcli.DeleteAsync(string.Concat(Constantes.Base + "/api/productoss/Deleteproductos/", idprodu.Text));
+                    if (resultb.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+                    }
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
 
-        }
+                }
 
+            }
+        
         #region propiedades
-        private List<categorias> _itemcategory;
+        private List<categorias> _itemcategory = new List<categorias>();
 
         public List<categorias> Itemcategory
         {
@@ -110,7 +145,7 @@ namespace ParaisoRealA.View
             }
         }
 
-        private List<estados> _itemestado;
+        private List<estados> _itemestado = new List<estados>();
 
         public List<estados> Itemestado
         {
@@ -143,6 +178,20 @@ namespace ParaisoRealA.View
         }
         #endregion
 
+        #region eventos
+
+        private void Categorys_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectcategory = categorys.SelectedItem as categorias;
+        }
+
+
+        private void Estadoselec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectestado = estadoselec.SelectedItem as estados;
+        }
+
+        #endregion
     }
 
 

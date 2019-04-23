@@ -30,11 +30,15 @@
                            FontAttributes="Bold"
                            FontSize="20">
                         </Label>
-
                         <Label Text="{Binding categorias.nomcategoria}"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           TextColor="Black">
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               TextColor="Black"
+                               x:Name="nomcat">
+                            </Label>
+                        <Label x:Name="idca"
+                               Text="{Binding idcategoria}"
+                               IsVisible="False">
                         </Label>
                     </StackLayout>
                    
@@ -42,9 +46,9 @@
                             Title="Seleccione una opcion"
                             TextColor="Black"
                             FontAttributes="Bold"
-                            ItemDisplayBinding="{Binding nomcategoria}"
+                            ItemDisplayBinding="{Binding nomcategoria}" 
                             SelectedItem="{Binding selectcategory}"
-                            ItemsSource="{Binding Itemcategory}">
+                            SelectedIndexChanged="Categorys_SelectedIndexChanged">
                     </Picker>
                     
                     
@@ -77,32 +81,36 @@
                         <Label Text="{Binding estados.nomestado}"
                            FontAttributes="Bold"
                            FontSize="20"
-                           TextColor="Black">
+                           TextColor="Black"
+                           x:Name="estaact">
+                        </Label>
+
+                        <Label x:Name="idest"
+                               Text="{Binding idestado}"
+                               IsVisible="False">
                         </Label>
                     </StackLayout>
                    
-                    <Picker Title="Seleccione una opcion"
+                    <Picker x:Name="estadoselec"
+                            Title="Seleccione una opcion"
                             TextColor="Black"
                             FontAttributes="Bold"
                             ItemDisplayBinding="{Binding nomestado}"
                             SelectedItem="{Binding selectestado}"
-                            ItemsSource="{Binding Itemestado}">
+                            SelectedIndexChanged="Estadoselec_SelectedIndexChanged">
                     </Picker>
                    
                     <Label Text="Precio"
                            FontAttributes="Bold"
                            FontSize="20">
                     </Label>
- 
+
                     <Entry Text="{Binding precio}"
                            FontAttributes="Bold"
                            FontSize="20"
                            TextColor="Black"
                            x:Name="pricep">
                     </Entry>
-                   
-                    
-
                     <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
