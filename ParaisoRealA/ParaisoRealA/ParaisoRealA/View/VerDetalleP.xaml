@@ -107,6 +107,7 @@
                            x:Name="estaact"
                            Margin="3">
                     </Label>
+                    
                     <Label x:Name="idest"
                                Text="{Binding idestado}"
                                IsVisible="False"

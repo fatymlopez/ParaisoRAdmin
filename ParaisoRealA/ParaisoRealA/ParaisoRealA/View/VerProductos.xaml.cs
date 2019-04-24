@@ -35,7 +35,8 @@ namespace ParaisoRealA.View
             (sender as ListView).SelectedItem = null;
             if (e.SelectedItem != null)
             {
-                await App.Current.MainPage.Navigation.PushAsync(new VerDetalleP { BindingContext = e.SelectedItem });
+                productos itemaBinding =(productos) e.SelectedItem;
+                await App.Current.MainPage.Navigation.PushAsync(new VerDetalleP(itemaBinding) { BindingContext = e.SelectedItem } );
             }
         }
 

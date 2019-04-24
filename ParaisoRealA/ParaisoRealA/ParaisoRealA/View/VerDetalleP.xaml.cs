@@ -21,9 +21,20 @@ namespace ParaisoRealA.View
             BindingContext = this;
             //getpickercat();
             //getpickerest();
-            idp = Convert.ToInt32(idca.Text);
+            var vBinding = this;
+            selectcategory = new categorias();
+            string unodostres = idcategoria.ToString();
+            //idp = Convert.ToInt32(idca.Text);
             ide = Convert.ToInt32(idest.Text);
 
+        }
+
+        public VerDetalleP(productos productosrr = null)
+            :this()
+        {
+            ProductoRecibido = productosrr;
+            idp = ProductoRecibido.idcategoria;
+            ide = ProductoRecibido.idestado;
         }
         protected override void OnAppearing()
         {
@@ -49,20 +60,24 @@ namespace ParaisoRealA.View
             var miArreglocategorias = await client2.GetStringAsync(URL);
             Itemcategory = JsonConvert.DeserializeObject<List<categorias>>(miArreglocategorias);
             categorys.ItemsSource = Itemcategory;
+            
         }
 
         public async void Btneditar_Clicked(object sender, EventArgs e)
         {
-            productos actualizarp = new productos
+            try
             {
-                id = Convert.ToInt32(idprodu.Text),
-                idcategoria = this.idp,
-                nomproducto = nomp.Text,
-                descripcion = desc.Text,
-                precio = Convert.ToDecimal(pricep.Text),
-                idestado = this.ide
+                productos actualizarp = new productos
+                {
+                    id = Convert.ToInt32(idprodu.Text),
+                    idcategoria = this.idp,
+                    nomproducto = nomp.Text,
+                    descripcion = desc.Text,
+                    precio = Convert.ToDecimal(pricep.Text),
+                    idestado = this.ide
 
-            };
+                };
+            
 
             var json = JsonConvert.SerializeObject(actualizarp);
             var conn = new StringContent(json, Encoding.UTF8, "application/json");
@@ -76,6 +91,27 @@ namespace ParaisoRealA.View
 
 
             }
+            }
+            catch (Exception ee)
+            {
+                var a = ee.Message;
+            }
+        }
+
+        private int ValorCategoria()
+        {
+            int idcategoriat = 0;
+            if (selectcategory == null)
+            {
+                selectcategory = new categorias();
+                idcategoriat = ProductoRecibido.idcategoria;
+
+            }
+            else
+                idcategoriat = selectcategory.id;
+
+
+            return idcategoriat;
         }
 
         public async void Bteliminar_Clicked(object sender, EventArgs e)
@@ -161,12 +197,32 @@ namespace ParaisoRealA.View
         private void Categorys_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectcategory = categorys.SelectedItem as categorias;
+            this.idp = selectcategory.id;
         }
 
         private void Estadoselec_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectestado = estadoselec.SelectedItem as estados;
+            this.ide = selectestado.id;
         }
+
+        private int _idCategoria;
+
+        public int idcategoria
+        {
+            get { return _idCategoria; }
+            set { _idCategoria = value; OnPropertyChanged(); }
+        }
+
+
+        private productos _ProductoRecibido;
+
+        public productos ProductoRecibido
+        {
+            get { return _ProductoRecibido; }
+            set { _ProductoRecibido = value; OnPropertyChanged(); }
+        }
+
 
         #endregion
     }
