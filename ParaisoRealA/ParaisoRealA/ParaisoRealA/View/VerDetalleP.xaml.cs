@@ -22,7 +22,8 @@ namespace ParaisoRealA.View
 
             //getpickercat();
             //getpickerest();
-
+            idp = Convert.ToInt32(idca.Text);
+            ide = Convert.ToInt32(idest.Text);
         }
 
         protected override void OnAppearing()
@@ -61,8 +62,7 @@ namespace ParaisoRealA.View
 
         public async void Btneditar_Clicked(object sender, EventArgs e)
         {
-            idp = Convert.ToInt32(idca.Text);
-            ide = Convert.ToInt32(idest.Text);
+            
 
             productos actualizarp = new productos
             {
@@ -180,13 +180,13 @@ namespace ParaisoRealA.View
 
         #region eventos
 
-        private void Categorys_SelectedIndexChanged(object sender, EventArgs e)
+        public  void Categorys_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectcategory = categorys.SelectedItem as categorias;
         }
 
 
-        private void Estadoselec_SelectedIndexChanged(object sender, EventArgs e)
+        public void Estadoselec_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectestado = estadoselec.SelectedItem as estados;
         }
