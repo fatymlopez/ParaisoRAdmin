@@ -1,147 +1,169 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ParaisoRealA.View.VerDetalleP">
-
+             x:Class="ParaisoRealA.View.VerDetalleP"
+             BackgroundColor="White">
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="cubiertos.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <ScrollView>
-        <StackLayout>
-            <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
-                <StackLayout Margin="20">
-                    <Label Text="Detalle Producto Seleccionado" 
+        <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
+            <StackLayout Margin="20">
+                <Label Text="Detalle Producto Seleccionado" 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="3">
+                </Label>
+                <Label Text="(Editar)" 
                            HorizontalOptions="Center"
                            FontAttributes="Bold"
                            FontSize="20"
-                           TextColor="Black">
-                    </Label>
-
-                    <Label Text="ID del Proucto"
+                           TextColor="#8BC34A">
+                </Label>
+                <Label Text="ID del Proucto"
                            FontAttributes="Bold"
-                           FontSize="20">
-                    </Label>
-                    <Label Text="{Binding id}"
+                           FontSize="20"
+                           Margin="3">
+                </Label>
+                <Label Text="{Binding id}"
                            x:Name="idprodu"
                            FontAttributes="Bold"
                            FontSize="20"
-                           TextColor="Black">
-                    </Label>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Categoria del Producto"
+                           TextColor="Black"
+                           Margin="3">
+                </Label>
+                <StackLayout Orientation="Horizontal" Margin="3">
+                    <Label Text="Categoria del Producto"
                            FontAttributes="Bold"
-                           FontSize="20">
-                        </Label>
-                        <Label Text="{Binding categorias.nomcategoria}"
+                           FontSize="20"
+                           Margin="3">
+                    </Label>
+                    <Label Text="{Binding categorias.nomcategoria}"
                                FontAttributes="Bold"
                                FontSize="20"
                                TextColor="Black"
-                               x:Name="nomcat">
-                            </Label>
-                        <Label x:Name="idca"
+                               x:Name="nomcat"
+                               Margin="3">
+                    </Label>
+                    <Label x:Name="idca"
                                Text="{Binding idcategoria}"
-                               IsVisible="False">
-                        </Label>
-                    </StackLayout>
-                   
-                    <Picker x:Name="categorys" 
+                               IsVisible="False"
+                               Margin="3">
+                    </Label>
+                </StackLayout>
+                <Picker x:Name="categorys" 
                             Title="Seleccione una opcion"
                             TextColor="Black"
                             FontAttributes="Bold"
                             ItemDisplayBinding="{Binding nomcategoria}" 
                             SelectedItem="{Binding selectcategory}"
-                            SelectedIndexChanged="Categorys_SelectedIndexChanged">
-                    </Picker>
-                    
-                    
-                    <Label Text="Nombre del Producto"
+                            SelectedIndexChanged="Categorys_SelectedIndexChanged"
+                            Margin="3">
+                </Picker>
+                <Label Text="Nombre del Producto"
                            FontAttributes="Bold"
-                           FontSize="20">
+                           FontSize="20"
+                           Margin="3">
+                </Label>
+                <Entry Text="{Binding nomproducto}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black"
+                           x:Name="nomp"
+                           Margin="3"
+                           Keyboard="Text">
+                </Entry>
+                <Label Text="Descripcion del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           Margin="3">
+                </Label>
+                <Entry Text="{Binding descripcion}"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           TextColor="Black"
+                           x:Name="desc"
+                           Margin="3"
+                           Keyboard="Text">
+                </Entry>
+                <StackLayout Orientation="Horizontal" Margin="3">
+                    <Label Text="Estado del Producto"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           Margin="3">
                     </Label>
-                    <Entry Text="{Binding nomproducto}"
+                    <Label Text="{Binding estados.nomestado}"
                            FontAttributes="Bold"
                            FontSize="20"
                            TextColor="Black"
-                           x:Name="nomp">
-                    </Entry>
-                    <Label Text="Descripcion del Producto"
-                           FontAttributes="Bold"
-                           FontSize="20">
+                           x:Name="estaact"
+                           Margin="3">
                     </Label>
-                    <Entry Text="{Binding descripcion}"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           TextColor="Black"
-                           x:Name="desc">
-                    </Entry>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Estado del Producto"
-                           FontAttributes="Bold"
-                           FontSize="20">
-                        </Label>
-
-                        <Label Text="{Binding estados.nomestado}"
-                           FontAttributes="Bold"
-                           FontSize="20"
-                           TextColor="Black"
-                           x:Name="estaact">
-                        </Label>
-
-                        <Label x:Name="idest"
+                    <Label x:Name="idest"
                                Text="{Binding idestado}"
-                               IsVisible="False">
-                        </Label>
-                    </StackLayout>
-                   
-                    <Picker x:Name="estadoselec"
+                               IsVisible="False"
+                               Margin="3">
+                    </Label>
+                </StackLayout>
+                <Picker x:Name="estadoselec"
                             Title="Seleccione una opcion"
                             TextColor="Black"
                             FontAttributes="Bold"
                             ItemDisplayBinding="{Binding nomestado}"
                             SelectedItem="{Binding selectestado}"
-                            SelectedIndexChanged="Estadoselec_SelectedIndexChanged">
-                    </Picker>
-                   
-                    <Label Text="Precio"
+                            SelectedIndexChanged="Estadoselec_SelectedIndexChanged"
+                            Margin="3">
+                </Picker>
+                <Label Text="Precio"
                            FontAttributes="Bold"
-                           FontSize="20">
-                    </Label>
-
-                    <Entry Text="{Binding precio}"
+                           FontSize="3">
+                </Label>
+                <Entry Text="{Binding precio}"
                            FontAttributes="Bold"
                            FontSize="20"
                            TextColor="Black"
-                           x:Name="pricep">
-                    </Entry>
-                    <StackLayout>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Button x:Name="btneditar" 
-                                    Clicked="Btneditar_Clicked"
-                                    Text="Actualizar Producto"
-                                    BackgroundColor="#8BC34A"
-                                    TextColor="White"
-                                    BorderRadius="20"
-                                    Grid.Column="0"
-                                    Grid.Row="0">
-                            </Button>
-                            <Button x:Name="bteliminar" 
-                                    Clicked="Bteliminar_Clicked"
-                                    Text="Eliminar Producto"
-                                    BackgroundColor="#8BC34A"
-                                    TextColor="White"
-                                    BorderRadius="20"
-                                    Grid.Column="1"
-                                    Grid.Row="0">
-                            </Button>
-                        </Grid>
-                    </StackLayout>
+                           x:Name="pricep"
+                           Margin="3"
+                           Keyboard="Numeric">
+                </Entry>
+                <StackLayout Margin="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="btneditar" 
+                                Clicked="Btneditar_Clicked"
+                                Text="Actualizar Producto"
+                                BackgroundColor="#8BC34A"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Grid.Column="0"
+                                Grid.Row="0">
+                        </Button>
+                        <Button x:Name="bteliminar" 
+                                Clicked="Bteliminar_Clicked"
+                                Text="Eliminar Producto"
+                                BackgroundColor="#8BC34A"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Grid.Column="1"
+                                Grid.Row="0">
+                        </Button>
+                    </Grid>
                 </StackLayout>
-            </Frame>
-        </StackLayout>
+            </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

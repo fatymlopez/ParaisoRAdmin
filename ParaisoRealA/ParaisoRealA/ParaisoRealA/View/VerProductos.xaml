@@ -1,56 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ParaisoRealA.View.VerProductos">
+             x:Class="ParaisoRealA.View.VerProductos"
+             BackgroundColor="White">
 
-   
         <ContentPage.ToolbarItems>
             <ToolbarItem>
                 <ToolbarItem.Icon>
-                    <FileImageSource File="upadate.png"></FileImageSource>
+                    <FileImageSource File="cubiertos.png"></FileImageSource>
                 </ToolbarItem.Icon>
             </ToolbarItem>
         </ContentPage.ToolbarItems>
-    <StackLayout>
-        <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
-            <StackLayout Margin="20">
-                <StackLayout>
-                    <Label Text="Ver Productos Ingresados" 
+
+    <StackLayout Margin="20">
+        <StackLayout>
+            <Label Text="Ver Productos Ingresados" 
                            HorizontalOptions="Center" 
                            TextColor="Black"
                            FontAttributes="Bold"
-                           FontSize="20">
-                    </Label>
-                </StackLayout>
-                <ListView x:Name="ListProducts"
-                          ItemSelected="ListProducts_ItemSelected">
-                    <ListView.Header>
-                        <SearchBar x:Name="SearchProducts"
-                                   TextChanged="SearchProducts_TextChanged">
-                        </SearchBar>
-                    </ListView.Header>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
+                           FontSize="24">
+            </Label>
+        </StackLayout>
+        <ListView x:Name="ListProducts"
+                          ItemSelected="ListProducts_ItemSelected"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
+                          Margin="5">
+
+            <ListView.Header>
+                <SearchBar x:Name="SearchProducts"
+                                   TextChanged="SearchProducts_TextChanged"
+                                   Placeholder="Buscar"
+                                   FontSize="20">
+                </SearchBar>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10">
+                            <Frame CornerRadius="20" Padding="5" OutlineColor="Gray">
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding id}"
-                                           FontAttributes="Bold"
-                                           FontSize="20">
-                                    </Label>
-                                    <Label Text="-"
-                                           FontAttributes="Bold"
-                                           FontSize="20">
-                                    </Label>
-                                    <Label Text="{Binding nomproducto}"
-                                           FontAttributes="Bold"
-                                           FontSize="20">
-                                    </Label>
+                                    <BoxView BackgroundColor="#8BC34A" WidthRequest="4"></BoxView>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Id producto:"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   Grid.Column="0"
+                                                   Grid.Row="0">
+                                        </Label>
+                                        <Label Text="{Binding id}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   Grid.Row="0">
+                                        </Label>
+                                        <Label Text="Nombre:"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   Grid.Column="0"
+                                                   Grid.Row="1">
+                                        </Label>
+                                        <Label Text="{Binding nomproducto}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   Grid.Row="1">
+                                        </Label>
+                                        <Label Text="Categoria:"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   Grid.Column="0"
+                                                   Grid.Row="2">
+                                        </Label>
+                                        <Label Text="{Binding categorias.nomcategoria}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   Grid.Row="2">
+                                        </Label>
+
+                                        <Label Text="Estado:"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   Grid.Column="0"
+                                                   Grid.Row="3">
+                                        </Label>
+                                        <Label Text="{Binding estados.nomestado}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   TextColor="Black"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   Grid.Row="3">
+                                        </Label>
+                                    </Grid>
+                                    <Image Source="lisfood.png"
+                                           HorizontalOptions="EndAndExpand">
+                                    </Image>
                                 </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </Frame>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>

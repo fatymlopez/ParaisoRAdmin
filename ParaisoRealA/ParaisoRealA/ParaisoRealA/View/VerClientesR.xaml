@@ -13,39 +13,111 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <Frame OutlineColor="#1b0000" CornerRadius="40" Margin="20">
-        <StackLayout Margin="20">
-            <StackLayout>
-                <Label Text="Ver Clientes Registrados" HorizontalOptions="Center" TextColor="#1b0000" FontAttributes="Bold" FontSize="20"></Label>
-            </StackLayout>
-            <ScrollView>
-                <ListView x:Name="ClienteListView"
-                      ItemSelected="ClienteListView_ItemSelected"
-                      Margin="20">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding id}"
-                                       TextColor="Gray"
-                                       FontSize="18"
-                                       FontAttributes="Bold">
-                                    </Label>
-                                    <Label Text="-"
-                                       TextColor="Gray"
-                                       FontSize="18">
-                                    </Label>
-                                    <Label Text="{Binding nombrecl}"
-                                       TextColor="Gray"
-                                       FontSize="18"
-                                       FontAttributes="Bold">
-                                    </Label>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollView>
+    <StackLayout Margin="20">
+        <StackLayout>
+            <Label Text="Ver Clientes Registrados" 
+                   HorizontalOptions="Center" 
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="24">
+            </Label>
         </StackLayout>
-    </Frame>
+        <ListView x:Name="ClienteListView"
+                  ItemSelected="ClienteListView_ItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  Margin="5">
+            <ListView.Header>
+                <SearchBar x:Name="SearchClientes"
+                           TextChanged="SearchClientes_TextChanged"
+                           Placeholder="Buscar"
+                           FontSize="20">
+                </SearchBar>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10">
+                            <Frame CornerRadius="20" Padding="5" OutlineColor="Gray">
+                                <StackLayout Orientation="Horizontal">
+                                    <BoxView BackgroundColor="#8BC34A" WidthRequest="4"></BoxView>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Id Cliente:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="{Binding id}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="Cliente:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="{Binding nombrecl}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="Email:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="2">
+                                        </Label>
+                                        <Label Text="{Binding emailcl}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="2">
+                                        </Label>
+                                        <Label Text="Celular:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="3">
+                                        </Label>
+                                        <Label Text="{Binding cellcl}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="3">
+                                        </Label>
+                                    </Grid>
+                                    <Image Source="groupuser.png"
+                                           HorizontalOptions="EndAndExpand">
+                                    </Image>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

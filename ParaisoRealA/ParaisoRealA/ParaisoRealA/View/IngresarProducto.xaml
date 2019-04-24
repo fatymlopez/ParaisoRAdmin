@@ -2,12 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
-             x:Class="ParaisoRealA.View.IngresarProducto">
+             x:Class="ParaisoRealA.View.IngresarProducto"
+             BackgroundColor="White">
 
     <ContentPage.BindingContext>
         <vm:IngresarPVM></vm:IngresarPVM>
     </ContentPage.BindingContext>
-   
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="combo.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
             <StackLayout Margin="20">
@@ -15,7 +24,7 @@
                    TextColor="Black" 
                    HorizontalOptions="Center" 
                    FontAttributes="Bold" 
-                   FontSize="20">
+                   FontSize="24">
             </Label>
             <Label Text="Seleccione una categoria" Margin="0,20,0,0" 
                    FontSize="20"
@@ -24,39 +33,48 @@
             <Picker x:Name="category" 
                     Title="Seleccione una opcion"
                     TextColor="Black"
+                    FontSize="20"
                     FontAttributes="Bold"
+                    Margin="3"
                     ItemDisplayBinding="{Binding nomcategoria}"
                     SelectedItem="{Binding selectcategory}"
                     ItemsSource="{Binding Itemcategory}">
             </Picker>
             <Label Text="Nombre del producto" 
                    FontSize="20"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Label>
             <Entry Text="{Binding nomproductocomm}"
                    TextColor="Black"
                    FontSize="20"
+                   Margin="3"
                    Keyboard="Text"
                    FontAttributes="Bold">
             </Entry>
             <Label Text="Ingrese una descripción"
                    FontSize="20"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Label>
             <Entry Text="{Binding descripcioncomm}"
                    TextColor="Black"
                    FontSize="20"
                    Keyboard="Text"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Entry>
             <Label Text="Ingrese un estado"
                    FontSize="20"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Label>
             <Picker 
                     Title="Seleccione una opcion"
                     TextColor="Black"
                     FontAttributes="Bold"
+                    FontSize="20"
+                    Margin="3"
                     ItemDisplayBinding="{Binding nomestado}"
                     SelectedItem="{Binding selectestado}"
                     ItemsSource="{Binding Itemestado}">
@@ -64,24 +82,25 @@
 
             <Label Text="Ingrese su precio"
                    FontSize="20"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Label>
             <Entry Text="{Binding preciocomm}"
                    TextColor="Black"
                    FontSize="20"
                    Keyboard="Numeric"
-                   FontAttributes="Bold">
+                   FontAttributes="Bold"
+                   Margin="3">
             </Entry>
-            <Button Text="Agregar Producto"
+                <Button Text="Agregar Producto"
                     TextColor="White"
                     HeightRequest="40"
                     BorderRadius="20"
                     Margin="20"
                     Command="{Binding AgregarProductoCommand}"
                     BackgroundColor="#8BC34A">
-            </Button>
-                
-        </StackLayout>
+                </Button>
+            </StackLayout>
         </Frame>
     </ScrollView>
 </ContentPage>

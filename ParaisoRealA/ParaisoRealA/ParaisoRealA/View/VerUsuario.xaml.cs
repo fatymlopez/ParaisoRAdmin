@@ -22,13 +22,13 @@ namespace ParaisoRealA.View
             GetListUsuario();
 		}
 
+        
         public async void GetListUsuario()
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync(Constantes.Base + "/api/usuapps/Getusuapp");
-            var verusuario = JsonConvert.DeserializeObject<List<usuapp>>(response);
-            UsuarioAppListView.ItemsSource = verusuario;
-            
+                HttpClient client = new HttpClient();
+                var response = await client.GetStringAsync(Constantes.Base + "/api/usuapps/Getusuapp");
+                var verusuario = JsonConvert.DeserializeObject<List<usuapp>>(response);
+                UsuarioAppListView.ItemsSource = verusuario; 
         }
 
         private async void UsuarioAppListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -38,6 +38,21 @@ namespace ParaisoRealA.View
             {
                 await App.Current.MainPage.Navigation.PushAsync(new VerDetalleU { BindingContext = e.SelectedItem });
             }
+
+        }
+
+        public async void Searchusuarios_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            HttpClient clientsearch = new HttpClient();
+            var response = await clientsearch.GetStringAsync(Constantes.Base + "/api/usuapps/Getusuapp");
+            var verusuarios = JsonConvert.DeserializeObject<List<usuapp>>(response);
+            var newuserList = verusuarios.Where(i => i.nombre.Contains(e.NewTextValue));
+
+            UsuarioAppListView.ItemsSource = newuserList;
+
+            UsuarioAppListView.BeginRefresh();
+
+            UsuarioAppListView.EndRefresh();
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using ParaisoRealA.Model;
+﻿using Newtonsoft.Json;
+using ParaisoRealA.Model;
 using ParaisoRealA.Model.Modeldb;
 using System;
 using System.Collections.Generic;
@@ -18,30 +19,49 @@ namespace ParaisoRealA.View
 		public VerDetalleU ()
 		{
 			InitializeComponent ();
-
-            BorrarUsuCommand = new Command(BorrarMierda);
-
-           
-
         }
 
-        #region
-        public Command BorrarUsuCommand { get; set; }
-        #endregion
-
-        #region propiedades
-        public string id { get; set; }
-        #endregion
-        public async void BorrarMierda()
+        public async void Actusu_Clicked(object sender, EventArgs e)
         {
-            HttpClient client = new HttpClient();
+            usuapp actualizarusu = new usuapp
+            {
+                id = Convert.ToInt32(idusu.Text),
+                nombre = usuappnom.Text,
+                usuario = usuarioapp.Text,
+                emailusu = correous.Text,
+                passusu = paswords.Text,
+            };
 
-            var result = await client.DeleteAsync(String.Concat(Constantes.Base +"/api/usuapps/Deleteusuapp/", IDS));
-
+            var json = JsonConvert.SerializeObject(actualizarusu);
+            var connusu = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient cli = new HttpClient();
+            var result = await cli.PutAsync(string.Concat(Constantes.Base + "/api/usuapps/Putusuapp/", idusu.Text), connusu);
 
             if (result.IsSuccessStatusCode)
             {
-                await App.Current.MainPage.DisplayAlert("Hey", "Eliminastes el registro", "ok");
+                await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
+                await App.Current.MainPage.Navigation.PopAsync();
+            }
+
+        }
+
+        public async void EliminarUsu_Clicked(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Usuario", "Si", "No");
+
+            if (answer == true)
+            {
+                HttpClient borrarusu = new HttpClient();
+                var resultu = await borrarusu.DeleteAsync(string.Concat(Constantes.Base + "/api/usuapps/Deleteusuapp/", idusu.Text));
+                if (resultu.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Mensaje", "Usuario Eliminado con Exito", "OK");
+                }
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+
             }
         }
     }

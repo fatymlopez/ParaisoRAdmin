@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ParaisoRealA.View.VerUsuario">
+             x:Class="ParaisoRealA.View.VerUsuario"
+             BackgroundColor="White">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem>
@@ -13,29 +14,97 @@
 
     <StackLayout Margin="20">
         <StackLayout>
-            <Label Text="Ver Usuarios Registrados" HorizontalOptions="Center" TextColor="Black"></Label>
-            <Entry Placeholder="Buscar"></Entry>
+            <Label Text="Ver Usuarios Registrados" 
+                   HorizontalOptions="Center" 
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="24">
+            </Label>
         </StackLayout>
-        <ScrollView>
-            <ListView
-                x:Name="UsuarioAppListView"
-                ItemSelected="UsuarioAppListView_ItemSelected"
-                ItemsSource="{Binding }"
-                SelectedItem="{Binding UsuarioAppListView}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding id}"></Label>
-                                <Label Text="-"></Label>
-                                <Label Text="{Binding nombre}"></Label>
-                                <Label Text="{Binding usuario}"></Label>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
+        <!--<ActivityIndicator x:Name="Listindicator"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+        </ActivityIndicator>-->
+        <ListView x:Name="UsuarioAppListView"
+                  ItemSelected="UsuarioAppListView_ItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  Margin="5">
+            <ListView.Header>
+                <SearchBar x:Name="Searchusuarios"
+                           TextChanged="Searchusuarios_TextChanged"
+                           Placeholder="Buscar"
+                           FontSize="20">
+                </SearchBar>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10">
+                            <Frame CornerRadius="20" Padding="5" OutlineColor="Gray">
+                                <StackLayout Orientation="Horizontal">
+                                    <BoxView BackgroundColor="#8BC34A" WidthRequest="4"></BoxView>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Id usuario:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="{Binding id}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="Nombre:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="{Binding nombre}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="Usuario:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="2">
+                                        </Label>
+                                        <Label Text="{Binding usuario}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="2">
+                                        </Label>
+                                    </Grid>
+                                    <Image Source="listicon.png"
+                                           HorizontalOptions="EndAndExpand">
+                                    </Image>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
-
 </ContentPage>

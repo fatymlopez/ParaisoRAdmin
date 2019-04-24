@@ -24,8 +24,7 @@ namespace ParaisoRealA.ViewModel
                 new OpcionesVM(typeof(View.IngresarUsuario), "Ingresar Usuario", "user"),
                 new OpcionesVM(typeof(View.VerUsuario), "Ver Usuarios Registrados", "searchuserapp"),
                 new OpcionesVM(typeof(View.VerClientesR), "Ver Clientes Registrados", "searchuser"),
-                //new OpcionesVM(typeof(View.Reportevta), "Ver Reporte Ventas", "reportapp"),
-                new OpcionesVM(typeof(View.Login), "Cerrar Sesion", "salir"),
+                new OpcionesVM(typeof(View.Login), "Cerrar Sesión", "salir"),
 
 
 

@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:ParaisoRealA.View"
              NavigationPage.HasNavigationBar="False" 
              NavigationPage.HasBackButton="False"
-             x:Class="ParaisoRealA.View.MasterMenu">
+             x:Class="ParaisoRealA.View.MasterMenu"
+             BackgroundColor="White">
 
     <MasterDetailPage.Master>
        

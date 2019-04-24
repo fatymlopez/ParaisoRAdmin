@@ -2,28 +2,124 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
-             x:Class="ParaisoRealA.View.IngresarUsuario">
-
+             x:Class="ParaisoRealA.View.IngresarUsuario"
+             xmlns:locai="clr-namespace:ParaisoRealA.Controllers"
+             BackgroundColor="White">
 
     <ContentPage.BindingContext>
         <vm:IngresarUVM></vm:IngresarUVM>
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="usuario.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
-        <StackLayout Margin="20">
-            <Label Text="Nombre"></Label>
-            <Entry Text="{Binding nomproperty}"></Entry>
-
-            <Label Text="Usuario"></Label>
-            <Entry Text="{Binding usuproperty}"></Entry>
-
-            <Label Text="Correo"></Label>
-            <Entry Text="{Binding emailproperty}"></Entry>
-
-            <Label Text="Contraseña"></Label>
-            <Entry Text="{Binding passproperty}"></Entry>
-
-            <Button Text="Agregar nuevo Usuario" Command="{Binding AgregarUsuCommand}"></Button>
-          
-        </StackLayout>
+        <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
+            <StackLayout Margin="20">
+                <Label Text="Ingresar Nuevo Usuario"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   TextColor="Black"
+                   Margin="4">
+                </Label>
+                <Label Text="Ingrese su nombre"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="4">
+                </Label>
+                <locai:CtrlEntry
+                   Image="users" 
+                   ImageHeigth="13" 
+                   ImageWidth="13"
+                   Text="{Binding nomproperty}"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="Black"
+                   Keyboard="Text"
+                   Margin="4">
+                </locai:CtrlEntry>
+                <Label Text="Ingrese el nombre de usuario"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="4">
+                </Label>
+                <locai:CtrlEntry
+                   Image="users" 
+                   ImageHeigth="13" 
+                   ImageWidth="13"
+                   Text="{Binding usuproperty}"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="Black"
+                   Keyboard="Text"
+                   Margin="4">
+                </locai:CtrlEntry>
+                <Label Text="Correo"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="4">
+                </Label>
+                <locai:CtrlEntry
+                   Image="correo" 
+                   ImageHeigth="13" 
+                   ImageWidth="13"
+                   Text="{Binding emailproperty}"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="Black"
+                   Keyboard="Email"
+                   Margin="4">
+                </locai:CtrlEntry>
+                <Label Text="Contraseña"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   Margin="4">
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <locai:CtrlEntry
+                       Image="contra" 
+                       ImageHeigth="13" 
+                       ImageWidth="13"
+                       Text="{Binding passproperty}"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       IsPassword="True"
+                       Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       x:Name="Password">
+                    </locai:CtrlEntry>
+                    <Image Source="Password.png" 
+                       HorizontalOptions="End" 
+                       VerticalOptions="Center" 
+                       Grid.Column="1" 
+                       HeightRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                              NumberOfTapsRequired="1">
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Button Text="Agregar nuevo Usuario" 
+                    Command="{Binding AgregarUsuCommand}"
+                    HeightRequest="46"
+                    BorderRadius="23"
+                    BackgroundColor="#8BC34A"
+                    TextColor="White"
+                    Margin="20">
+                </Button>
+            </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

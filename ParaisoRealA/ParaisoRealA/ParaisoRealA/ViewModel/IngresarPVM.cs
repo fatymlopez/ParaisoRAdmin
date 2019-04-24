@@ -20,39 +20,14 @@ using Xamarin.Forms;
 
 namespace ParaisoRealA.ViewModel
 {
-    public class IngresarPVM : INotifyPropertyChanged
+    public class IngresarPVM : ViewModelBase, INotifyPropertyChanged
     {
-
-        private List<categorias> _itemcategory;
-
-        public List<categorias> Itemcategory { get { return _itemcategory; } set { _itemcategory = value; RaisePropertyChanged(); } }
-
-        private void RaisePropertyChanged([CallerMemberName] string propertyname = null)
-        {
-            if (PropertyChanged != null)
-            {
-                if (!string.IsNullOrEmpty(propertyname))
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-                }
-            }
-        }
-
-
-        private List<estados> _itemestado;
-
-        public List<estados> Itemestado
-        {
-            get { return _itemestado; }
-            set { _itemestado = value; RaisePropertyChanged(); }
-        }
 
         public IngresarPVM()
         {
             AgregarProductoCommand = new Command(AgregarProducto);
 
             GetPickercategory();
-
             GetPickerEstado();
 
         }
@@ -110,6 +85,19 @@ namespace ParaisoRealA.ViewModel
 
         }
         #region propiedades
+        private List<categorias> _itemcategory;
+        public List<categorias> Itemcategory
+        {
+            get { return _itemcategory; }
+            set { _itemcategory = value; RaisePropertyChanged(); }
+        }
+
+        private List<estados> _itemestado;
+        public List<estados> Itemestado
+        {
+            get { return _itemestado; }
+            set { _itemestado = value; RaisePropertyChanged(); }
+        }
         private int _ids;
         public int ids
         {
@@ -145,7 +133,6 @@ namespace ParaisoRealA.ViewModel
             set { _preciocomm = value; RaisePropertyChanged(); }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         private categorias _selectcategory;
         public categorias selectcategory
         {
@@ -161,9 +148,7 @@ namespace ParaisoRealA.ViewModel
 
         }
 
-
         private int _idstatus;
-
         public int idstatus
         {
             get { return _idstatus; }

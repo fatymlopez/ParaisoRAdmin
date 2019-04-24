@@ -19,20 +19,16 @@ namespace ParaisoRealA.View
             InitializeComponent();
 
             BindingContext = this;
-
             //getpickercat();
             //getpickerest();
+            idp = Convert.ToInt32(idca.Text);
+            ide = Convert.ToInt32(idest.Text);
 
         }
-
         protected override void OnAppearing()
         {
             getpickercat();
             getpickerest();
-
-
-            
-
 
             base.OnAppearing();
         }
@@ -44,7 +40,6 @@ namespace ParaisoRealA.View
             var miArreglostado = await client1.GetStringAsync(URL);
             Itemestado = JsonConvert.DeserializeObject<List<estados>>(miArreglostado);
             estadoselec.ItemsSource = Itemestado;
-            //Debug.WriteLine(Itemestado);
         }
 
         public async void getpickercat()
@@ -54,16 +49,10 @@ namespace ParaisoRealA.View
             var miArreglocategorias = await client2.GetStringAsync(URL);
             Itemcategory = JsonConvert.DeserializeObject<List<categorias>>(miArreglocategorias);
             categorys.ItemsSource = Itemcategory;
-
-            //Debug.WriteLine(Itemcategory);
-
         }
 
         public async void Btneditar_Clicked(object sender, EventArgs e)
         {
-            idp = Convert.ToInt32(idca.Text);
-            ide = Convert.ToInt32(idest.Text);
-
             productos actualizarp = new productos
             {
                 id = Convert.ToInt32(idprodu.Text),
@@ -83,6 +72,7 @@ namespace ParaisoRealA.View
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
+                await App.Current.MainPage.Navigation.PopAsync();
 
 
             }
@@ -90,12 +80,7 @@ namespace ParaisoRealA.View
 
         public async void Bteliminar_Clicked(object sender, EventArgs e)
         {
-          
-           
-            
-                var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Yes", "No");
-                //Debug.WriteLine("Answer: " + answer);
-          
+                var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
                 if (answer == true)
                 {
                     HttpClient borrarcli = new HttpClient();
@@ -115,7 +100,6 @@ namespace ParaisoRealA.View
         
         #region propiedades
         private List<categorias> _itemcategory = new List<categorias>();
-
         public List<categorias> Itemcategory
         {
             get { return _itemcategory; }
@@ -123,7 +107,6 @@ namespace ParaisoRealA.View
         }
 
         private int _idp;
-
         public int idp
         {
             get { return _idp; }
@@ -131,7 +114,6 @@ namespace ParaisoRealA.View
         }
 
         private categorias _selectcategory;
-
         public categorias selectcategory
         {
             get { return _selectcategory; }
@@ -146,7 +128,6 @@ namespace ParaisoRealA.View
         }
 
         private List<estados> _itemestado = new List<estados>();
-
         public List<estados> Itemestado
         {
             get { return _itemestado; }
@@ -154,16 +135,13 @@ namespace ParaisoRealA.View
         }
 
         private int _ide;
-
         public int ide
         {
             get { return _ide; }
             set { _ide = value; OnPropertyChanged(); }
         }
 
-
         private estados _selectestado;
-
         public estados selectestado
         {
             get { return _selectestado; }
@@ -184,7 +162,6 @@ namespace ParaisoRealA.View
         {
             selectcategory = categorys.SelectedItem as categorias;
         }
-
 
         private void Estadoselec_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -12,6 +12,7 @@ namespace ParaisoRealA.Model.Modeldb
         public int? estado { get; set; }
         public int? idubicacion { get; set; }
         public cliente cliente { get; set; }
+        public ubicacion ubicacion { get; set; }
 
         //public static IList<detallereservacion> detallereservacion { get; set; }
 

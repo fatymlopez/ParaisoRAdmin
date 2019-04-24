@@ -15,15 +15,17 @@
             <ListView
                 ItemsSource="{x:Static local:OpcionesVM.All}"
                 ItemSelected="OnListViewItemSelected"
-                       BackgroundColor="White">
+                BackgroundColor="White"
+                SeparatorVisibility="None"
+                Margin="5">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout VerticalOptions="FillAndExpand"
-                                                 Orientation="Horizontal"
-                                                 BackgroundColor="White">
-
+                                         Orientation="Horizontal"
+                                         BackgroundColor="White"
+                                         Margin="10">
                                 <Image  Source="{Binding Icono}"
                                         WidthRequest="{OnIdiom Default=60, Phone=60, Tablet=80}"
                                         HeightRequest="{OnIdiom Default=60, Phone=60, Tablet=80}"
@@ -31,12 +33,11 @@
                                 </Image>
 
                                 <Label Text="{Binding Titulo}"
-                                               FontSize="18"
-                                               VerticalOptions="Center"
-                                               TextColor="Black"
-                                               FontAttributes="Bold"
-                                               BackgroundColor="White">
-
+                                       FontSize="18"
+                                       VerticalOptions="Center"
+                                       TextColor="Gray"
+                                       FontAttributes="Bold"
+                                       BackgroundColor="White">
                                 </Label>
                             </StackLayout>
                         </ViewCell>

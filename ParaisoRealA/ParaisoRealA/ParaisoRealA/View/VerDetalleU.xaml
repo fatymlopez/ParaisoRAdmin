@@ -1,34 +1,130 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
-             x:Class="ParaisoRealA.View.VerDetalleU">
-
-    <ContentPage.BindingContext>
-        <vm:VerDetalleUVM></vm:VerDetalleUVM>
-    </ContentPage.BindingContext>
-
-
-    <StackLayout>
-
-        <Label Text="Id Usuario"></Label>
-        <Label x:Name="IDS"></Label>
-     
-        <Label Text="Nombre del usuario"></Label>
-        <Label Text="{Binding nombre}"></Label>
-
-        <Label Text="Usuario"></Label>
-        <Label Text="{Binding usuario}"></Label>
-
-        <Label Text="Correo Electronico"></Label>
-        <Label Text="{Binding emailusu}"></Label>
-
-        <Label Text="Contraseña"></Label>
-        <Label Text="{Binding passusu}"></Label>
-
-        <Button Text="Borrar" Command="{Binding BorrarUsuCommand}"></Button>
-        <Button Text="Editar Usuario" Command="{Binding EditarUsuCommand}"></Button>
-
-    </StackLayout>
+             x:Class="ParaisoRealA.View.VerDetalleU"
+             BackgroundColor="White">
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="usuario.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     
+    <ScrollView>
+        <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
+            <StackLayout Margin="20">
+                <Label Text="Ver Detalle Usuario"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   TextColor="Black"
+                   Margin="4">
+                </Label>
+                <Label Text="(Editar)"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   TextColor="#8BC34A">
+                </Label>
+                <Label Text="Id Usuario"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Margin="4">
+                </Label>
+                <Label x:Name="idusu"
+                       Text="{Binding id}"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       Margin="4">
+                </Label>
+                <Label Text="Nombre"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       Margin="4">
+                </Label>
+                <Entry Text="{Binding nombre}"
+                       x:Name="usuappnom"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="4"
+                       Keyboard="Text">
+                </Entry>
+                <Label Text="Usuario"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       Margin="4">
+                </Label>
+                <Entry Text="{Binding usuario}"
+                       x:Name="usuarioapp"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="4"
+                       Keyboard="Text">
+                </Entry>
+                <Label Text="Correo Electronico"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       Margin="4">
+                </Label>
+                <Entry Text="{Binding emailusu}"
+                       x:Name="correous"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="4"
+                       Keyboard="Email">
+                </Entry>
+                <Label Text="Contraseña"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Margin="4">
+                </Label>
+                <Entry Text="{Binding passusu}"
+                        x:Name="paswords"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        TextColor="Black"
+                        Margin="4">
+                </Entry>
+                <StackLayout Margin="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button Text="Actualizar Datos"
+                                x:Name="actusu"
+                                Clicked="Actusu_Clicked"
+                                BackgroundColor="#8BC34A"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Grid.Column="0"
+                                Grid.Row="0">
+                        </Button>
+                        <Button Text="Eliminar Usuario"
+                                x:Name="EliminarUsu"
+                                Clicked="EliminarUsu_Clicked"
+                                BackgroundColor="#8BC34A"
+                                TextColor="White"
+                                BorderRadius="20"
+                                Grid.Column="1"
+                                Grid.Row="0">
+                        </Button>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
 </ContentPage>

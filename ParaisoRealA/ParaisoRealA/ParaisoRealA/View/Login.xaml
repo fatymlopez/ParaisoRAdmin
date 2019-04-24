@@ -10,7 +10,7 @@
 
     <ScrollView>
         <StackLayout Margin="20" BackgroundColor="White">
-            <Image Source="Logor.png"
+            <Image Source="Logo.png"
                     WidthRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"
                     HeightRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"></Image>
             <StackLayout BackgroundColor="White" Margin="20">

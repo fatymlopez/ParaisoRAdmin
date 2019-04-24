@@ -27,19 +27,28 @@ namespace ParaisoRealA.View
         public async void GetListCliente()
         {
             HttpClient client = new HttpClient();
-            
             var response = await client.GetStringAsync(Constantes.Base + "/api/clientes/Getcliente");
             var vercliente = JsonConvert.DeserializeObject<List<cliente>>(response);
             ClienteListView.ItemsSource = vercliente;
         }
 
-        public async void ClienteListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public void ClienteListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             (sender as ListView).SelectedItem = null;
-            if (e.SelectedItem != null)
-            {
-                await App.Current.MainPage.Navigation.PushAsync(new VerDetalleCli { BindingContext = e.SelectedItem });
-            }
+            
+        }
+
+        public async void SearchClientes_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            HttpClient clientesearch = new HttpClient();
+            var response = await clientesearch.GetStringAsync(Constantes.Base + "/api/clientes/Getcliente");
+            var verclientes = JsonConvert.DeserializeObject<List<cliente>>(response);
+            var ListClient = verclientes.Where(i => i.nombrecl.Contains(e.NewTextValue));
+
+            ClienteListView.ItemsSource = ListClient;
+            ClienteListView.BeginRefresh();
+            ClienteListView.EndRefresh();
+
         }
     }
 }

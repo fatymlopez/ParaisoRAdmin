@@ -16,5 +16,15 @@ namespace ParaisoRealA.View
         {
             InitializeComponent();
         }
+
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+
+        //    MasterBehavior = MasterBehavior.Popover;
+        //    IsPresented = false;
+
+        //}
+
     }
 }

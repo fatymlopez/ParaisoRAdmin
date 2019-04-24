@@ -2,41 +2,187 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="White"
-             xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
              x:Class="ParaisoRealA.View.Notificaciones">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.Icon>
+                <FileImageSource File="notification.png"></FileImageSource>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <Button Text="Ciudad Universitaria UNIVO"
-                x:Name="CDUNIVO"
-                Clicked="CDUNIVO_Clicked"></Button>
-        <Button Text="Maestrias Univo"
-                x:Name="MUNIVO"
-                Clicked="MUNIVO_Clicked"></Button>
-        <Button Text="UMA "
-                x:Name="UMAA"
-                Clicked="UMAA_Clicked"></Button>
-       
+    <StackLayout Margin="20">
+        <Label Text="Notificaciones"
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"
+               FontSize="20">
+        </Label>
+
+        <Label Text="Seleccione una Ubicacion"
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"
+               FontSize="20">
+        </Label>
+        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Text="Ciudad Universitaria UNIVO"
+                        x:Name="CDUNIVO"
+                        Clicked="CDUNIVO_Clicked"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        Grid.Column="0"
+                        Grid.Row="0">
+                </Button>
+                <Button Text="Maestrias Univo"
+                        x:Name="MUNIVO"
+                        Clicked="MUNIVO_Clicked"
+                        BackgroundColor="Transparent"
+                        FontAttributes="Bold"
+                        Grid.Column="1"
+                        Grid.Row="0">
+                </Button>
+                <Button Text="UMA "
+                        x:Name="UMAA"
+                        Clicked="UMAA_Clicked"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        Grid.Column="2"
+                        Grid.Row="0">
+                </Button>
+            </Grid>
+        </StackLayout>
+        
         <ListView x:Name="ListNotificaciones"
-                  ItemSelected="ListNotificaciones_ItemSelected">
-
+                  ItemSelected="ListNotificaciones_ItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  Margin="5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding id}"></Label>
-                            <Label Text="{Binding idcliente}"></Label>
-                            <Label Text="{Binding cliente.nombrecl}"></Label>
-                            <Label Text="{Binding total}"></Label>
+                        <StackLayout Margin="10">
+                            <Frame CornerRadius="20" Padding="5" OutlineColor="Gray">
+                                <StackLayout Orientation="Horizontal">
+                                    <BoxView BackgroundColor="#F44336" WidthRequest="4"></BoxView>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Id Orden:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="{Binding id}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="0">
+                                        </Label>
+                                        <Label Text="Id Cliente:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="{Binding idcliente}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="1">
+                                        </Label>
+                                        <Label Text="Nombre:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="2">
+                                        </Label>
+                                        <Label Text="{Binding clientes.nombrecl}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="2">
+                                        </Label>
+
+                                        <Label Text="Celular:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="3">
+                                        </Label>
+                                        <Label Text="{Binding clientes.cellcl}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="3">
+                                        </Label>
+                                        <Label Text="Ubicacion:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="4">
+                                        </Label>
+                                        <Label Text="{Binding ubicacion.nomubicacion}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="4">
+                                        </Label>
+                                        <Label Text="Total:"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="5">
+                                        </Label>
+                                        <Label Text="{Binding total}"
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="5">
+                                        </Label>
+                                    </Grid>
+                                    <Image Source="noti.png"
+                                           HorizontalOptions="EndAndExpand">
+                                    </Image>
+                                </StackLayout>
+                            </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
         </ListView>
     </StackLayout>
-    
-    
-    
-    
-    </ContentPage>
+</ContentPage>
