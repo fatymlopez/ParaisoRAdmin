@@ -72,7 +72,7 @@ namespace ParaisoRealA.View
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
-                await App.Current.MainPage.Navigation.PopAsync();
+                //await App.Current.MainPage.Navigation.PopAsync();
 
 
             }
