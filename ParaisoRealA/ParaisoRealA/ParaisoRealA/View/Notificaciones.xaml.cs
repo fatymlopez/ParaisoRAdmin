@@ -23,22 +23,22 @@ namespace ParaisoRealA.View
 
         public async void CDUNIVO_Clicked(object sender, EventArgs e)
         {
-            var client = new HttpClient();
+            var cliente = new HttpClient();
             string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
-            var miArreglo = await client.GetStringAsync(URL);
-            var verordenes = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo);
-            var nuevalista = verordenes.Where(a => a.idubicacion == 1 && a.estado == 1);
-            ListNotificaciones.ItemsSource = nuevalista;
+            var miArreglo1 = await cliente.GetStringAsync(URL);
+            var verordenesuni = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo1);
+            var nuevalista1 = verordenesuni.Where(a => a.idubicacion == 1 && a.estado == 1);
+            ListNotificaciones.ItemsSource = nuevalista1;
         }
 
         public async void MUNIVO_Clicked(object sender, EventArgs e)
         {
-            var client = new HttpClient();
+            var cliente2 = new HttpClient();
             string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
-            var miArreglo = await client.GetStringAsync(URL);
-            var verordenes = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo);
-            var nuevalista = verordenes.Where(a => a.idubicacion == 2 && a.estado == 1);
-            ListNotificaciones.ItemsSource = nuevalista;
+            var miArreglo2 = await cliente2.GetStringAsync(URL);
+            var verordenesmu = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo2);
+            var nuevalista2 = verordenesmu.Where(a => a.idubicacion == 2 && a.estado == 1);
+            ListNotificaciones.ItemsSource = nuevalista2;
         }
 
         public async void UMAA_Clicked(object sender, EventArgs e)
@@ -55,5 +55,7 @@ namespace ParaisoRealA.View
                 await App.Current.MainPage.Navigation.PushAsync(new DetalleOrden { BindingContext = e.SelectedItem });
             }
         }
+
+        
     }
 }

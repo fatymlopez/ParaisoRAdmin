@@ -14,7 +14,9 @@ namespace ParaisoRealA.Model.Modeldb
         public cliente cliente { get; set; }
         public ubicacion ubicacion { get; set; }
 
-        //public static IList<detallereservacion> detallereservacion { get; set; }
+
+        //este el objeto que declaro
+        public static List<detallereservacion> detallereservacion { get; set; }
 
     }
 }

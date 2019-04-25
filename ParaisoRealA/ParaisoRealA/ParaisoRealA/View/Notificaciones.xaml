@@ -24,42 +24,29 @@
                FontAttributes="Bold"
                FontSize="20">
         </Label>
-        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
+        
+        <StackLayout HorizontalOptions="Center">
+           
                 <Button Text="Ciudad Universitaria UNIVO"
                         x:Name="CDUNIVO"
                         Clicked="CDUNIVO_Clicked"
-                        TextColor="Black"
+                        TextColor="White"
                         FontAttributes="Bold"
-                        BackgroundColor="Transparent"
-                        Grid.Column="0"
-                        Grid.Row="0">
+                        BackgroundColor="#8BC34A">
                 </Button>
                 <Button Text="Maestrias Univo"
                         x:Name="MUNIVO"
                         Clicked="MUNIVO_Clicked"
-                        BackgroundColor="Transparent"
-                        FontAttributes="Bold"
-                        Grid.Column="1"
-                        Grid.Row="0">
+                        BackgroundColor="#8BC34A"
+                        FontAttributes="Bold">
                 </Button>
                 <Button Text="UMA "
                         x:Name="UMAA"
                         Clicked="UMAA_Clicked"
                         FontAttributes="Bold"
-                        BackgroundColor="Transparent"
-                        Grid.Column="2"
-                        Grid.Row="0">
+                        BackgroundColor="#8BC34A">
                 </Button>
-            </Grid>
+          
         </StackLayout>
         
         <ListView x:Name="ListNotificaciones"

@@ -158,7 +158,7 @@ namespace ParaisoRealA.View
                 _selectcategory = value;
                 var names = _selectcategory.nomcategoria;
                 idp = _selectcategory.id;
-                App.Current.MainPage.DisplayAlert("Mensaje", "Categoria Actualizada", "Ok");
+                //App.Current.MainPage.DisplayAlert("Mensaje", "Categoria Actualizada", "Ok");
 
             }
         }
@@ -186,7 +186,7 @@ namespace ParaisoRealA.View
                 _selectestado = value;
                 var names2 = _selectestado.nomestado;
                 ide = _selectestado.id;
-                App.Current.MainPage.DisplayAlert("Mensaje", "Estado Actualizado con exito", "OK");
+                //App.Current.MainPage.DisplayAlert("Mensaje", "Estado Actualizado con exito", "OK");
 
             }
         }
