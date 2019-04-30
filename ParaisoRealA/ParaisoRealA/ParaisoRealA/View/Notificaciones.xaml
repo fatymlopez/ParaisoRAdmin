@@ -109,7 +109,7 @@
                                                Grid.Column="0"
                                                Grid.Row="2">
                                         </Label>
-                                        <Label Text="{Binding clientes.nombrecl}"
+                                        <Label Text="{Binding cliente.nombrecl}"
                                                FontAttributes="Bold"
                                                FontSize="20"
                                                TextColor="Black"
@@ -124,7 +124,7 @@
                                                Grid.Column="0"
                                                Grid.Row="3">
                                         </Label>
-                                        <Label Text="{Binding clientes.cellcl}"
+                                        <Label Text="{Binding cliente.cellcl}"
                                                FontAttributes="Bold"
                                                FontSize="20"
                                                TextColor="Black"

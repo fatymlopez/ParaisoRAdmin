@@ -16,7 +16,7 @@ namespace ParaisoRealA.Model.Modeldb
 
 
         //este el objeto que declaro
-        public static List<detallereservacion> detallereservacion { get; set; }
+        public List<detallereservacion> detallereservacion { get; set; }
 
     }
 }

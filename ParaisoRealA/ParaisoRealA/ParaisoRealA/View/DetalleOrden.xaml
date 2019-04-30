@@ -21,29 +21,44 @@
             </Grid> 
         </StackLayout>
         <ListView x:Name="ListDetalle"
-                  ItemsSource="{Binding Detalleproperty}">
+                  ItemsSource="{Binding Detalleproperty}"
+                   HasUnevenRows="True"
+                  SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Label Text="Producto" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="Precio" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="Cantidad" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="SubTotal" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="{Binding detallereservacion.productos.nomproducto}" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="{Binding detallereservacion.cantidad}" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="{Binding detallereservacion.precio}" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
-                            <Label Text="{Binding detallereservacion.subtotal}" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
-                        </Grid>
+                        <StackLayout Margin="10">
+                            <Frame CornerRadius="20" Padding="5" OutlineColor="Gray">
+                                <StackLayout Orientation="Horizontal">
+                                    <BoxView BackgroundColor="#F44336" WidthRequest="4"></BoxView>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                           
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="Producto" Grid.Column="0" Grid.Row="0"></Label>
+                                        <Label Text="{Binding productos.nomproducto}" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center"></Label>
+                                        
+                                        <Label Text="Precio" Grid.Column="0" Grid.Row="1"></Label>
+                                        <Label Text="{Binding precio}" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"></Label>
+
+                                      
+                                        <Label Text="Cantidad" Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding cantidad}" Grid.Column="1" Grid.Row="2"></Label>
+                                        <Label Text="SubTotal" Grid.Column="0" Grid.Row="3"></Label>
+                                     
+                                        <Label Text="{Binding detallereservacion.subtotal}" Grid.Column="1" Grid.Row="3" ></Label>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

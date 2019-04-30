@@ -51,8 +51,9 @@ namespace ParaisoRealA.View
             (sender as ListView).SelectedItem = null;
             if (e.SelectedItem != null)
             {
-             
-                await App.Current.MainPage.Navigation.PushAsync(new DetalleOrden { BindingContext = e.SelectedItem });
+
+                reservacion objetoseleccionado = (reservacion)e.SelectedItem;
+                await App.Current.MainPage.Navigation.PushAsync(new DetalleOrden(objetoseleccionado) { BindingContext = e.SelectedItem });
             }
         }
 
