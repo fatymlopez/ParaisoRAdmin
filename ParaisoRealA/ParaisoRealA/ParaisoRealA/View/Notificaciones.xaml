@@ -16,39 +16,50 @@
         <Label Text="Notificaciones"
                HorizontalTextAlignment="Center"
                FontAttributes="Bold"
-               FontSize="20">
+               FontSize="20"
+               TextColor="Black">
         </Label>
 
         <Label Text="Seleccione una Ubicacion"
                HorizontalTextAlignment="Center"
                FontAttributes="Bold"
-               FontSize="20">
+               FontSize="20"
+               TextColor="Black">
         </Label>
-        
-        <StackLayout HorizontalOptions="Center">
+        <Frame CornerRadius="20" Padding="5" OutlineColor="Gray" Margin="20">
+            <StackLayout HorizontalOptions="Center">
            
                 <Button Text="Ciudad Universitaria UNIVO"
                         x:Name="CDUNIVO"
                         Clicked="CDUNIVO_Clicked"
                         TextColor="White"
                         FontAttributes="Bold"
-                        BackgroundColor="#8BC34A">
+                        BackgroundColor="#F44336"
+                        BorderRadius="23"
+                        Margin="5">
                 </Button>
                 <Button Text="Maestrias Univo"
                         x:Name="MUNIVO"
                         Clicked="MUNIVO_Clicked"
-                        BackgroundColor="#8BC34A"
-                        FontAttributes="Bold">
+                        TextColor="White"
+                        BackgroundColor="#F44336"
+                        FontAttributes="Bold"
+                        BorderRadius="23"
+                        Margin="5">
                 </Button>
                 <Button Text="UMA "
                         x:Name="UMAA"
                         Clicked="UMAA_Clicked"
                         FontAttributes="Bold"
-                        BackgroundColor="#8BC34A">
+                        TextColor="White"
+                        BackgroundColor="#F44336"
+                        BorderRadius="23"
+                        Margin="5">
                 </Button>
-          
+           
         </StackLayout>
-        
+        </Frame>
+
         <ListView x:Name="ListNotificaciones"
                   ItemSelected="ListNotificaciones_ItemSelected"
                   HasUnevenRows="True"
@@ -78,26 +89,26 @@
                                         </Grid.RowDefinitions>
                                         <Label Text="Id Orden:"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                Grid.Column="0"
                                                Grid.Row="0">
                                         </Label>
                                         <Label Text="{Binding id}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.Row="0">
                                         </Label>
                                         <Label Text="Id Cliente:"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                Grid.Column="0"
                                                Grid.Row="1">
                                         </Label>
                                         <Label Text="{Binding idcliente}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"
@@ -111,7 +122,7 @@
                                         </Label>
                                         <Label Text="{Binding cliente.nombrecl}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"
@@ -120,13 +131,13 @@
 
                                         <Label Text="Celular:"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                Grid.Column="0"
                                                Grid.Row="3">
                                         </Label>
                                         <Label Text="{Binding cliente.cellcl}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"
@@ -140,7 +151,7 @@
                                         </Label>
                                         <Label Text="{Binding ubicacion.nomubicacion}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"
@@ -148,13 +159,13 @@
                                         </Label>
                                         <Label Text="Total:"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                Grid.Column="0"
                                                Grid.Row="5">
                                         </Label>
                                         <Label Text="{Binding total}"
                                                FontAttributes="Bold"
-                                               FontSize="20"
+                                               FontSize="18"
                                                TextColor="Black"
                                                Grid.Column="1"
                                                Grid.ColumnSpan="2"

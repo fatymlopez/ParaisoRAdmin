@@ -43,7 +43,12 @@ namespace ParaisoRealA.View
 
         public async void UMAA_Clicked(object sender, EventArgs e)
         {
-
+            var cliente3 = new HttpClient();
+            string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
+            var miArreglo3 = await cliente3.GetStringAsync(URL);
+            var verordenesmu = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo3);
+            var nuevalista3 = verordenesmu.Where(a => a.idubicacion == 3 && a.estado == 1);
+            ListNotificaciones.ItemsSource = nuevalista3;
         }
 
         public async void ListNotificaciones_ItemSelected(object sender, SelectedItemChangedEventArgs e)

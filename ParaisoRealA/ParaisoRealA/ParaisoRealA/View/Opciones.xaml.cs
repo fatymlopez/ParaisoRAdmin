@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParaisoRealA.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,5 +32,14 @@ namespace ParaisoRealA.View
             }
         }
 
+       
+            public  void Cerrarsesion_Clicked(object sender, EventArgs e)
+            {
+                
+          
+
+            }
+
+       
     }
 }

@@ -15,23 +15,22 @@
     <StackLayout Margin="20">
         <StackLayout>
             <Label Text="Ver Productos Ingresados" 
-                           HorizontalOptions="Center" 
-                           TextColor="Black"
-                           FontAttributes="Bold"
-                           FontSize="24">
+                   HorizontalOptions="Center" 
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="24">
             </Label>
         </StackLayout>
         <ListView x:Name="ListProducts"
-                          ItemSelected="ListProducts_ItemSelected"
-                          HasUnevenRows="True"
-                          SeparatorVisibility="None"
-                          Margin="5">
-
+                  ItemSelected="ListProducts_ItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  Margin="5">
             <ListView.Header>
                 <SearchBar x:Name="SearchProducts"
-                                   TextChanged="SearchProducts_TextChanged"
-                                   Placeholder="Buscar"
-                                   FontSize="20">
+                           TextChanged="SearchProducts_TextChanged"
+                           Placeholder="Buscar"
+                           FontSize="20">
                 </SearchBar>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -52,63 +51,62 @@
                                             <RowDefinition Height="*"></RowDefinition>
                                             <RowDefinition Height="*"></RowDefinition>
                                             <RowDefinition Height="*"></RowDefinition>
-
                                         </Grid.RowDefinitions>
                                         <Label Text="Id producto:"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   Grid.Column="0"
-                                                   Grid.Row="0">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="0">
                                         </Label>
                                         <Label Text="{Binding id}"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   TextColor="Black"
-                                                   Grid.Column="1"
-                                                   Grid.Row="0">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.Row="0">
                                         </Label>
                                         <Label Text="Nombre:"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   Grid.Column="0"
-                                                   Grid.Row="1">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="1">
                                         </Label>
                                         <Label Text="{Binding nomproducto}"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   TextColor="Black"
-                                                   Grid.Column="1"
-                                                   Grid.ColumnSpan="2"
-                                                   Grid.Row="1">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="1">
                                         </Label>
                                         <Label Text="Categoria:"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   Grid.Column="0"
-                                                   Grid.Row="2">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="2">
                                         </Label>
                                         <Label Text="{Binding categorias.nomcategoria}"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   TextColor="Black"
-                                                   Grid.Column="1"
-                                                   Grid.ColumnSpan="2"
-                                                   Grid.Row="2">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="2">
                                         </Label>
 
                                         <Label Text="Estado:"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   Grid.Column="0"
-                                                   Grid.Row="3">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               Grid.Column="0"
+                                               Grid.Row="3">
                                         </Label>
                                         <Label Text="{Binding estados.nomestado}"
-                                                   FontAttributes="Bold"
-                                                   FontSize="20"
-                                                   TextColor="Black"
-                                                   Grid.Column="1"
-                                                   Grid.ColumnSpan="2"
-                                                   Grid.Row="3">
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               TextColor="Black"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="2"
+                                               Grid.Row="3">
                                         </Label>
                                     </Grid>
                                     <Image Source="lisfood.png"

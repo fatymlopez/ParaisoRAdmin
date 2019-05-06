@@ -87,7 +87,7 @@ namespace ParaisoRealA.View
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
-                //await App.Current.MainPage.Navigation.PopAsync();
+                await App.Current.MainPage.Navigation.PopAsync();
 
 
             }
@@ -124,11 +124,13 @@ namespace ParaisoRealA.View
                     if (resultb.IsSuccessStatusCode)
                     {
                         await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+                        await App.Current.MainPage.Navigation.PopAsync();
                     }
                 }
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+                    
 
                 }
 

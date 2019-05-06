@@ -30,10 +30,8 @@ namespace ParaisoRealA.View
             ReservacionUsar = reservacionRecibida;
             ObtenerDetalle();
 
-            //ListDetalle.ItemsSource =
+            
         }
-
-       
 
         public async void ObtenerDetalle()
         {
@@ -56,9 +54,28 @@ namespace ParaisoRealA.View
             }
         }
 
-    
-        private void EntregaOrden_Clicked(object sender, EventArgs e)
+        public void ListDetalle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            (sender as ListView).SelectedItem = null;
+        }
+
+        public async void EntregaOrden_Clicked(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
+            if (answer == true)
+            {
+                HttpClient borrarres = new HttpClient();
+                var resultbr = await borrarres.DeleteAsync(string.Concat(Constantes.Base + "/api/reservacions/Deletereservacion/", ReservacionUsar.id));
+                if (resultbr.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+                }
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+
+            }
 
         }
 
@@ -89,9 +106,8 @@ namespace ParaisoRealA.View
         }
 
 
-
         #endregion
 
-
+        
     }
 }

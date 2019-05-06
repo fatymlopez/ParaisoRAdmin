@@ -7,7 +7,7 @@
              x:Class="ParaisoRealA.View.Opciones">
 
 
-    <ScrollView>
+  
         <StackLayout Orientation="Vertical">
             <StackLayout>
                 <Image Source="Logo.png"></Image>
@@ -39,13 +39,22 @@
                                        FontAttributes="Bold"
                                        BackgroundColor="White">
                                 </Label>
+                                
                             </StackLayout>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout>
+                <Button x:Name="cerrarsesion"
+                        BackgroundColor="Transparent"
+                        TextColor="Gray"
+                        Clicked="Cerrarsesion_Clicked"
+                        Text="Cerrar Sesion"></Button>
+            </StackLayout>
         </StackLayout>
-    </ScrollView>
+  
 </ContentPage>
 
 

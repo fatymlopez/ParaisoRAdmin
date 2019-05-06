@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ParaisoRealA.Model;
+using ParaisoRealA.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +19,39 @@ namespace ParaisoRealA.View
             InitializeComponent();
         }
 
-        //protected override void OnAppearing()
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            MasterBehavior = MasterBehavior.Popover;
+            IsPresented = false;
+
+            //Device.BeginInvokeOnMainThread(typeof(Login) () =>
+            //{
+            //    var response = await DisplayAlert("Mensaje", "¿Desea cerrar sesion?", "Si", "No");
+            //    if (response == true)
+            //    {
+            //        Autenticar();
+            //        await Navigation.PopModalAsync();
+                  
+            //    }
+            //    else
+            //    {
+            //        await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+            //    }
+
+
+            //});
+        }
+
+        //public void Autenticar()
         //{
-        //    base.OnAppearing();
-
-        //    MasterBehavior = MasterBehavior.Popover;
-        //    IsPresented = false;
-
+        //    Constantes.usuario = "";
+        //    Constantes.contraseña = "";
         //}
 
-    }
+
+
+    }   
 }
+           
