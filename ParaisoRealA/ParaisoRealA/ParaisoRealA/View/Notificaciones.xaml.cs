@@ -27,7 +27,7 @@ namespace ParaisoRealA.View
             string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
             var miArreglo1 = await cliente.GetStringAsync(URL);
             var verordenesuni = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo1);
-            var nuevalista1 = verordenesuni.Where(a => a.idubicacion == 1 && a.estado == 1);
+            var nuevalista1 = verordenesuni.Where(a => a.idubicacion == 1 && a.estado == 0);
             ListNotificaciones.ItemsSource = nuevalista1;
         }
 
@@ -37,7 +37,7 @@ namespace ParaisoRealA.View
             string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
             var miArreglo2 = await cliente2.GetStringAsync(URL);
             var verordenesmu = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo2);
-            var nuevalista2 = verordenesmu.Where(a => a.idubicacion == 2 && a.estado == 1);
+            var nuevalista2 = verordenesmu.Where(a => a.idubicacion == 2 && a.estado == 0);
             ListNotificaciones.ItemsSource = nuevalista2;
         }
 
@@ -47,7 +47,7 @@ namespace ParaisoRealA.View
             string URL = string.Format(Constantes.Base + "/api/reservacions/Getreservacion");
             var miArreglo3 = await cliente3.GetStringAsync(URL);
             var verordenesmu = JsonConvert.DeserializeObject<List<reservacion>>(miArreglo3);
-            var nuevalista3 = verordenesmu.Where(a => a.idubicacion == 3 && a.estado == 1);
+            var nuevalista3 = verordenesmu.Where(a => a.idubicacion == 3 && a.estado == 0);
             ListNotificaciones.ItemsSource = nuevalista3;
         }
 

@@ -65,7 +65,11 @@ namespace ParaisoRealA.View
                         Constantes.nombreu = item.nombre;
                         Constantes.idusuario = item.id;
                         break;
+
+                        
                     }
+
+                  
                 }
 
                 btnsesion.IsEnabled = true;
@@ -99,5 +103,7 @@ namespace ParaisoRealA.View
 
 
         }
+
+        
     }
 }

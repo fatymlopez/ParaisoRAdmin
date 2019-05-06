@@ -69,6 +69,9 @@ namespace ParaisoRealA.View
                 if (resultbr.IsSuccessStatusCode)
                 {
                     await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+                   
+                    await App.Current.MainPage.Navigation.PopAsync();
+                 
                 }
             }
             else
@@ -78,6 +81,8 @@ namespace ParaisoRealA.View
             }
 
         }
+
+       
 
         #region propiedades
         private reservacion _reser;

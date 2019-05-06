@@ -32,14 +32,6 @@ namespace ParaisoRealA.View
             }
         }
 
-       
-            public  void Cerrarsesion_Clicked(object sender, EventArgs e)
-            {
-                
-          
-
-            }
-
-       
+             
     }
 }

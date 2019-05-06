@@ -46,13 +46,13 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout>
+            <!--<StackLayout>
                 <Button x:Name="cerrarsesion"
                         BackgroundColor="Transparent"
                         TextColor="Gray"
                         Clicked="Cerrarsesion_Clicked"
                         Text="Cerrar Sesion"></Button>
-            </StackLayout>
+            </StackLayout>-->
         </StackLayout>
   
 </ContentPage>
