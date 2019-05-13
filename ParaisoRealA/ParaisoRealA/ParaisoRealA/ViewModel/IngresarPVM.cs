@@ -59,29 +59,45 @@ namespace ParaisoRealA.ViewModel
             }
             else
             {
-                productos newproduct = new productos()
+                try
                 {
-                    idcategoria = this.ids,
-                    nomproducto = this.nomproductocomm,
-                    descripcion = this.descripcioncomm,
-                    idestado = this.idstatus,
-                    precio = this.preciocomm
+                    IsBusy = true;
 
-                };
-                var json = JsonConvert.SerializeObject(newproduct);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpClient client = new HttpClient();
-                var result = await client.PostAsync(Constantes.Base + "/api/productoss/Postproductos", content);
+                    productos newproduct = new productos()
+                    {
+                        idcategoria = this.ids,
+                        nomproducto = this.nomproductocomm,
+                        descripcion = this.descripcioncomm,
+                        idestado = this.idstatus,
+                        precio = this.preciocomm
 
-                if (result.StatusCode == HttpStatusCode.Created)
-                {
-                    await App.Current.MainPage.DisplayAlert("Genial!", " Tu registro se ha realizado con exito", "Ok");
-                    await App.Current.MainPage.Navigation.PopAsync();
+                    };
 
-                    
 
+                    var json = JsonConvert.SerializeObject(newproduct);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    HttpClient client = new HttpClient();
+                    var result = await client.PostAsync(Constantes.Base + "/api/productoss/Postproductos", content);
+
+                    if (result.StatusCode == HttpStatusCode.Created)
+                    {
+                        await App.Current.MainPage.DisplayAlert("Genial!", " Tu registro se ha realizado con exito", "Ok");
+                        await App.Current.MainPage.Navigation.PopAsync();
+
+                    }
 
                 }
+                catch (Exception)
+                {
+                    await App.Current.MainPage.DisplayAlert("Mensaje", "No hay conexion a internet", "Ok");
+                  
+                    return;
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+
             }
 
         }
@@ -166,6 +182,17 @@ namespace ParaisoRealA.ViewModel
                 var namestatus = _selectestado.nomestado;
                 idstatus = _selectestado.id;
                 App.Current.MainPage.DisplayAlert("Estado", namestatus + "El id es" + "" + idstatus, "Ok");
+            }
+        }
+
+        bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                isBusy = value;
+                RaisePropertyChanged();
             }
         }
 

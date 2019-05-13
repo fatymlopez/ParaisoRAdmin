@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ParaisoRealA.ViewModel"
+             xmlns:behavior="clr-namespace:ParaisoRealA.Controllers"
              x:Class="ParaisoRealA.View.IngresarProducto"
              BackgroundColor="White">
 
@@ -18,18 +19,35 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
+        
         <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
             <StackLayout Margin="20">
-            <Label Text="Agregar Nuevo Producto" 
-                   TextColor="Black" 
-                   HorizontalOptions="Center" 
-                   FontAttributes="Bold" 
-                   FontSize="24">
-            </Label>
-            <Label Text="Seleccione una categoria" Margin="0,20,0,0" 
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Agregar Nuevo Producto" 
+                               TextColor="Black" 
+                               HorizontalOptions="Center" 
+                               FontAttributes="Bold" 
+                               FontSize="24">
+                         </Label>
+                        <ActivityIndicator x:Name="indicatorip"
+                                           IsRunning="{Binding IsBusy}" 
+                                           IsVisible="{Binding IsBusy}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Start"
+                                           Grid.Row="0"
+                                           Color="Gray">
+                        </ActivityIndicator>
+                    </Grid>
+                </StackLayout>
+
+                <Label Text="Seleccione una categoria" Margin="0,20,0,0" 
                    FontSize="20"
                    FontAttributes="Bold">
-            </Label>
+                </Label>
             <Picker x:Name="category" 
                     Title="Seleccione una opcion"
                     TextColor="Black"
@@ -85,13 +103,17 @@
                    FontAttributes="Bold"
                    Margin="3">
             </Label>
-            <Entry Text="{Binding preciocomm}"
+                <Entry Text="{Binding preciocomm}"
                    TextColor="Black"
                    FontSize="20"
                    Keyboard="Numeric"
                    FontAttributes="Bold"
-                   Margin="3">
-            </Entry>
+                   Margin="3"
+                   Placeholder="0.00">
+                    <Entry.Behaviors>
+                        <behavior:FormatEntry Mask="X.XX"></behavior:FormatEntry>
+                    </Entry.Behaviors>
+                </Entry>
                 <Button Text="Agregar Producto"
                     TextColor="White"
                     HeightRequest="40"

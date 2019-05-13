@@ -14,17 +14,29 @@
 
     <StackLayout Margin="20">
         <StackLayout>
-            <Label Text="Ver Usuarios Registrados" 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="Ver Usuarios Registrados" 
                    HorizontalOptions="Center" 
                    TextColor="Black"
                    FontAttributes="Bold"
-                   FontSize="24">
+                   FontSize="24"
+                   Grid.Row="0">
             </Label>
+                <ActivityIndicator x:Name="indicatorusuc"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0"
+                                   Color="Gray">
+
+                </ActivityIndicator>
+
+            </Grid>
         </StackLayout>
-        <!--<ActivityIndicator x:Name="Listindicator"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center">
-        </ActivityIndicator>-->
+ 
+      
         <ListView x:Name="UsuarioAppListView"
                   ItemSelected="UsuarioAppListView_ItemSelected"
                   HasUnevenRows="True"
@@ -107,4 +119,5 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+   
 </ContentPage>

@@ -128,7 +128,8 @@
                        HorizontalOptions="StartAndExpand"
                        FontSize="20"
                        FontAttributes="Bold"
-                       TextColor="Black">
+                       TextColor="Black"
+                       x:Name="totalin">
             </Label>
         </StackLayout>
         <Button Text="Orden Entregada" 

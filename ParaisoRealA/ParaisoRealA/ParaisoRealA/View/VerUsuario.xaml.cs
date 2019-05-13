@@ -25,10 +25,29 @@ namespace ParaisoRealA.View
         
         public async void GetListUsuario()
         {
+            indicatorusuc.IsRunning = true;
+           
+            try
+            {
                 HttpClient client = new HttpClient();
                 var response = await client.GetStringAsync(Constantes.Base + "/api/usuapps/Getusuapp");
                 var verusuario = JsonConvert.DeserializeObject<List<usuapp>>(response);
-                UsuarioAppListView.ItemsSource = verusuario; 
+                UsuarioAppListView.ItemsSource = verusuario;
+
+                UsuarioAppListView.IsEnabled = true;
+
+            }
+
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Mesanje", "No hay conexion a internet", "Ok");
+                UsuarioAppListView.IsEnabled = true;
+                indicatorusuc.IsRunning = false;
+                return;
+            }
+
+            indicatorusuc.IsRunning = false;
+
         }
 
         private async void UsuarioAppListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

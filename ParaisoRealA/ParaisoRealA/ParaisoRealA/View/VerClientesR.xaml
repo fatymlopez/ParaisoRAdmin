@@ -15,12 +15,26 @@
 
     <StackLayout Margin="20">
         <StackLayout>
-            <Label Text="Ver Clientes Registrados" 
-                   HorizontalOptions="Center" 
-                   TextColor="Black"
-                   FontAttributes="Bold"
-                   FontSize="24">
-            </Label>
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Ver Clientes Registrados" 
+                           HorizontalOptions="Center" 
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontSize="24"
+                           Grid.Row="0">
+                   </Label>
+                <ActivityIndicator x:Name="indicatorusu"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0"
+                                   Color="Gray">
+
+                </ActivityIndicator>
+
+            </Grid>
         </StackLayout>
         <ListView x:Name="ClienteListView"
                   ItemSelected="ClienteListView_ItemSelected"

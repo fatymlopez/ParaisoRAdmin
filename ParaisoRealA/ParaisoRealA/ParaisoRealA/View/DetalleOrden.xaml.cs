@@ -72,25 +72,44 @@ namespace ParaisoRealA.View
 
         public async void EntregaOrden_Clicked(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
-            if (answer == true)
+            indicatordt.IsRunning = true;
+            try
             {
-                HttpClient borrarres = new HttpClient();
-                var resultbr = await borrarres.DeleteAsync(string.Concat(Constantes.Base + "/api/reservacions/Deletereservacion/", ReservacionUsar.id));
-                if (resultbr.IsSuccessStatusCode)
+
+
+                var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
+                if (answer == true)
                 {
-                    await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
-                   
-                    await App.Current.MainPage.Navigation.PopAsync();
-                 
+                    HttpClient borrarres = new HttpClient();
+                    var resultbr = await borrarres.DeleteAsync(string.Concat(Constantes.Base + "/api/reservacions/Deletereservacion/", ReservacionUsar.id));
+                    if (resultbr.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+
+                        await App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
+                        totalin.Text = string.Empty;
+                       
+
+                    }
                 }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+
+                }
+
+                EntregaOrden.IsEnabled = true;
             }
-            else
+            catch (Exception ef)
             {
-                await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
+                var variable = ef.Message;
 
+                await App.Current.MainPage.DisplayAlert("Mesanje", "No hay conexion a internet", "Ok");
+                ListDetalle.IsEnabled = true;
+                indicatordt.IsRunning = false;
+                return;
             }
-
+            indicatordt.IsRunning = false;
         }
 
        

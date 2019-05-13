@@ -26,10 +26,25 @@ namespace ParaisoRealA.View
 
         public async void GetListCliente()
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync(Constantes.Base + "/api/clientes/Getcliente");
-            var vercliente = JsonConvert.DeserializeObject<List<cliente>>(response);
-            ClienteListView.ItemsSource = vercliente;
+            indicatorusu.IsRunning = true;
+            try
+            {
+                HttpClient client = new HttpClient();
+                var response = await client.GetStringAsync(Constantes.Base + "/api/clientes/Getcliente");
+                var vercliente = JsonConvert.DeserializeObject<List<cliente>>(response);
+                ClienteListView.ItemsSource = vercliente;
+
+                ClienteListView.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Mesanje", "No hay conexion a internet", "Ok");
+                ClienteListView.IsEnabled = true;
+                indicatorusu.IsRunning = false;
+                return;
+            }
+
+            indicatorusu.IsRunning = false;
         }
 
         public void ClienteListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -15,13 +15,26 @@
     <ScrollView>
         <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
             <StackLayout Margin="20">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
                 <Label Text="Ver Detalle Usuario"
-                   HorizontalOptions="Center"
-                   FontAttributes="Bold"
-                   FontSize="24"
-                   TextColor="Black"
-                   Margin="4">
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       TextColor="Black"
+                       Margin="4">
                 </Label>
+                        <ActivityIndicator x:Name="indicatordu"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0"
+                                   Color="Gray">
+                        </ActivityIndicator>
+                    </Grid>
+                </StackLayout>
                 <Label Text="(Editar)"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"

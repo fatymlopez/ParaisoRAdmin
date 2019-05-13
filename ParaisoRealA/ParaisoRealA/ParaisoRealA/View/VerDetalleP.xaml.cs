@@ -65,6 +65,7 @@ namespace ParaisoRealA.View
 
         public async void Btneditar_Clicked(object sender, EventArgs e)
         {
+            indicatordp.IsRunning = true;
             try
             {
                 productos actualizarp = new productos
@@ -87,15 +88,24 @@ namespace ParaisoRealA.View
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Mensaje", "Datos actualizados con exito", "OK");
-                await App.Current.MainPage.Navigation.PopAsync();
+                await App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
 
 
             }
+                btneditar.IsEnabled = true;
             }
             catch (Exception ee)
             {
                 var a = ee.Message;
+
+                await App.Current.MainPage.DisplayAlert("Mensaje", "No hay conexion a internet", "Ok");
+                btneditar.IsEnabled = true;
+                indicatordp.IsRunning = false;
+                return;
+                
             }
+
+            indicatordp.IsEnabled = true;
         }
 
         private int ValorCategoria()
@@ -116,6 +126,10 @@ namespace ParaisoRealA.View
 
         public async void Bteliminar_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+
+
                 var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
                 if (answer == true)
                 {
@@ -124,17 +138,29 @@ namespace ParaisoRealA.View
                     if (resultb.IsSuccessStatusCode)
                     {
                         await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
-                        await App.Current.MainPage.Navigation.PopAsync();
+                        await App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
                     }
                 }
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Mensaje", "Operacion Cancelada", "Ok");
-                    
+
 
                 }
 
+                bteliminar.IsEnabled = true;
+
             }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Mensaje", "No hay conexion a internet", "Ok");
+                bteliminar.IsEnabled = true;
+                indicatordp.IsRunning = false;
+                return;
+            }
+
+            indicatordp.IsRunning = false;
+        }
         
         #region propiedades
         private List<categorias> _itemcategory = new List<categorias>();

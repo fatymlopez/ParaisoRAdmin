@@ -26,7 +26,10 @@ namespace ParaisoRealA.ViewModel
             }
             else
             {
-                usuapp newuser = new usuapp()
+                try
+                {
+                    IsBusy = true;
+                    usuapp newuser = new usuapp()
                 {
                     nombre = nomproperty,
                     usuario = usuproperty,
@@ -45,6 +48,17 @@ namespace ParaisoRealA.ViewModel
                     await App.Current.MainPage.Navigation.PopAsync();
                 }
 
+                }
+                catch (Exception)
+                {
+                    await App.Current.MainPage.DisplayAlert("Mensaje", "No hay conexion a internet", "Ok");
+
+                    return;
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
             }
 
         }
@@ -77,6 +91,17 @@ namespace ParaisoRealA.ViewModel
         {
             get { return _passproperty; }
             set { _passproperty = value; RaisePropertyChanged(); }
+        }
+
+        bool isBusy;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                isBusy = value;
+                RaisePropertyChanged();
+            }
         }
 
         #endregion

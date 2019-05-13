@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.VerDetalleP"
+             xmlns:behavior="clr-namespace:ParaisoRealA.Controllers"
              BackgroundColor="White">
    
     <ContentPage.ToolbarItems>
@@ -15,14 +16,28 @@
     <ScrollView>
         <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
             <StackLayout Margin="20">
-
-                <Label Text="Detalle Producto Seleccionado" 
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Detalle Producto Seleccionado" 
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
                        FontSize="20"
                        TextColor="Black"
-                       Margin="3">
+                       Margin="3"
+                       Grid.Row="0">
                 </Label>
+             
+                        <ActivityIndicator x:Name="indicatordp"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0"
+                                   Color="Gray">
+                        </ActivityIndicator>
+                    </Grid>
+                </StackLayout>
                 <Label Text="(Editar)" 
                            HorizontalOptions="Center"
                            FontAttributes="Bold"
@@ -134,7 +149,11 @@
                            TextColor="Black"
                            x:Name="pricep"
                            Margin="3"
-                           Keyboard="Numeric">
+                           Keyboard="Numeric"
+                           Placeholder="0.00">
+                    <Entry.Behaviors>
+                        <behavior:FormatEntry Mask="X.XX"></behavior:FormatEntry>
+                    </Entry.Behaviors>
                 </Entry>
                 <StackLayout Margin="20">
                     <Grid>

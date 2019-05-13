@@ -30,7 +30,7 @@ namespace ParaisoRealA.View
 
                 if (true)
                 {
-                   
+
                     Constantes.idusuario = 0;
                     Constantes.usuario = "";
                     Constantes.contraseña = "";
@@ -38,6 +38,8 @@ namespace ParaisoRealA.View
                     await Navigation.PopAsync();
 
                 }
+
+               
 
             });
             return base.OnBackButtonPressed();
