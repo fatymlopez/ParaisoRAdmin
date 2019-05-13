@@ -35,8 +35,10 @@ namespace ParaisoRealA.View
 
         public async void ObtenerDetalle()
         {
+            indicatordt.IsRunning = true;
             try
             {
+
                 var cliente2 = new HttpClient();
                 string URL = string.Format(Constantes.Base + "/api/detallereservacions/Getdetallereservacion/");// + VerDetalleOrder.idreservacion);
                 var miArreglo2 = await cliente2.GetStringAsync(URL);
@@ -47,11 +49,20 @@ namespace ParaisoRealA.View
                List<detallereservacion> VerDetalleOrder =  nuevalista2;
                 ListDetalle.ItemsSource = nuevalista2;
                 var excample = nuevalista2;
+
+                ListDetalle.IsEnabled = true;
+
             }
             catch (Exception e)
             {
                 var variable = e.Message;
+
+                await App.Current.MainPage.DisplayAlert("Mesanje", "No hay conexion a internet", "Ok");
+                ListDetalle.IsEnabled = true;
+                indicatordt.IsRunning = false;
+                return;
             }
+            indicatordt.IsRunning = false;
         }
 
         public void ListDetalle_ItemSelected(object sender, SelectedItemChangedEventArgs e)

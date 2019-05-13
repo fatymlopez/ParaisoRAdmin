@@ -77,6 +77,7 @@ namespace ParaisoRealA.ViewModel
                 {
                     await App.Current.MainPage.DisplayAlert("Genial!", " Tu registro se ha realizado con exito", "Ok");
                     await App.Current.MainPage.Navigation.PopAsync();
+
                     
 
 

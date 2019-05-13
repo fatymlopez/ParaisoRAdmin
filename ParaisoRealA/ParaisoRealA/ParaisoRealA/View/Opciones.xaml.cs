@@ -28,6 +28,16 @@ namespace ParaisoRealA.View
                 Page page = (Page)Activator.CreateInstance(pageData.Type);
                 await Navigation.PushAsync(page);
 
+                if (typeof(Login) != null)
+                {
+                    
+                    Constantes.idusuario = 0;
+                    Constantes.usuario = "";
+                    Constantes.contraseña = "";
+                    Constantes.nombreu = "";
+                    // await Navigation.PopAsync();
+                }
+
 
             }
         }

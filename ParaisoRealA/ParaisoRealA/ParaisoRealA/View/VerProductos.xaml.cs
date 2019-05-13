@@ -24,10 +24,26 @@ namespace ParaisoRealA.View
 
         public async  void GetProductos()
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync(Constantes.Base + "/api/productoss/Getproductos");
-            var verproductos = JsonConvert.DeserializeObject<List<productos>>(response);
-            ListProducts.ItemsSource = verproductos;      
+            indicatorpr.IsRunning = true;
+            try
+            {
+                HttpClient client = new HttpClient();
+                var response = await client.GetStringAsync(Constantes.Base + "/api/productoss/Getproductos");
+                var verproductos = JsonConvert.DeserializeObject<List<productos>>(response);
+                ListProducts.ItemsSource = verproductos;
+
+                ListProducts.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+                await App.Current.MainPage.DisplayAlert("Mesanje", "No hay conexion a internet", "Ok");
+                ListProducts.IsEnabled = true;
+                indicatorpr.IsRunning = false;
+                return;
+            }
+
+            indicatorpr.IsRunning = false;
+
         }
 
         public async void ListProducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)

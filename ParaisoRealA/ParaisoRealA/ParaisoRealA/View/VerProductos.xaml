@@ -14,12 +14,24 @@
 
     <StackLayout Margin="20">
         <StackLayout>
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
             <Label Text="Ver Productos Ingresados" 
                    HorizontalOptions="Center" 
                    TextColor="Black"
                    FontAttributes="Bold"
                    FontSize="24">
             </Label>
+            <ActivityIndicator x:Name="indicatorpr"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               Grid.Row="0"
+                               Color="Gray">
+
+            </ActivityIndicator>
+            </Grid>
         </StackLayout>
         <ListView x:Name="ListProducts"
                   ItemSelected="ListProducts_ItemSelected"

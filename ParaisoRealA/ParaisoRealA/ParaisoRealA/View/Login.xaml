@@ -6,21 +6,30 @@
              NavigationPage.HasBackButton="False"
              BackgroundColor="White"
              x:Class="ParaisoRealA.View.Login">
-
-
-    <ScrollView>
-        <StackLayout Margin="20" BackgroundColor="White">
-            <Image Source="Logo.png"
-                    WidthRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"
-                    HeightRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"></Image>
-            <StackLayout BackgroundColor="White" Margin="20">
-                <StackLayout Margin="20">
-
-                    <ActivityIndicator
+    <StackLayout>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="Logo.png"
+                   WidthRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"
+                   HeightRequest="{OnIdiom Default=75, Phone=60, Tablet=512}"
+                   Grid.Row="0">
+                </Image>
+                <ActivityIndicator
                         x:Name="indicator"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center">
-                    </ActivityIndicator>
+                        VerticalOptions="Center"
+                        Grid.Row="0"
+                        Color="Gray">
+                </ActivityIndicator>
+            </Grid>
+        </StackLayout>
+        <StackLayout Margin="20" BackgroundColor="White">
+
+            <StackLayout BackgroundColor="White" Margin="20">
+                <StackLayout Margin="20">
                     <local:CtrlEntry 
                              Text="{Binding usuproperty}"
                              Placeholder="Usuario" 
@@ -32,7 +41,6 @@
                              Margin="0">
                     </local:CtrlEntry>
                 </StackLayout>
-
                 <StackLayout Grid.Row="2" Grid.Column="1" Margin="20,10,20,10">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -80,5 +88,5 @@
                 </StackLayout>
             </StackLayout>
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
 </ContentPage>

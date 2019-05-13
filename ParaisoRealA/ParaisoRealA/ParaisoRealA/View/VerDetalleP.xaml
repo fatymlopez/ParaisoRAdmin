@@ -15,6 +15,7 @@
     <ScrollView>
         <Frame OutlineColor="#8BC34A" CornerRadius="40" Margin="20">
             <StackLayout Margin="20">
+
                 <Label Text="Detalle Producto Seleccionado" 
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
