@@ -77,14 +77,14 @@ namespace ParaisoRealA.View
             {
 
 
-                var answer = await DisplayAlert("Mensaje", "Desea Eliminar el Producto", "Si", "No");
+                var answer = await DisplayAlert("Mensaje", "Orden Entregada", "Si", "No");
                 if (answer == true)
                 {
                     HttpClient borrarres = new HttpClient();
                     var resultbr = await borrarres.DeleteAsync(string.Concat(Constantes.Base + "/api/reservacions/Deletereservacion/", ReservacionUsar.id));
                     if (resultbr.IsSuccessStatusCode)
                     {
-                        await DisplayAlert("Mensaje", "Producto Eliminado con Exito", "OK");
+                        await DisplayAlert("Mensaje", "Proceso Realizado con Exito", "OK");
 
                         await App.Current.MainPage.Navigation.PushAsync(new MasterMenu());
                         totalin.Text = string.Empty;
