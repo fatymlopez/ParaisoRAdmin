@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ParaisoRealA.View.VerDetalleU"
+              xmlns:locai="clr-namespace:ParaisoRealA.Controllers"
              BackgroundColor="White">
    
     <ContentPage.ToolbarItems>
@@ -101,13 +102,33 @@
                         FontSize="20"
                         Margin="4">
                 </Label>
-                <Entry Text="{Binding passusu}"
-                        x:Name="paswords"
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        TextColor="Black"
-                        Margin="4">
-                </Entry>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <locai:CtrlEntry Text="{Binding passusu}"
+                                     FontAttributes="Bold"
+                                     FontSize="20"
+                                     TextColor="Black"
+                                     IsPassword="True"
+                                     Grid.ColumnSpan="2"
+                                     Grid.Column="0"
+                                     x:Name="paswords"
+                                     Margin="4">
+                    </locai:CtrlEntry>
+                    <Image Source="Password.png" 
+                           HorizontalOptions="End" 
+                           VerticalOptions="Center" 
+                           Grid.Column="1" 
+                           HeightRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                  NumberOfTapsRequired="1">
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
                 <StackLayout Margin="20">
                     <Grid>
                         <Grid.ColumnDefinitions>

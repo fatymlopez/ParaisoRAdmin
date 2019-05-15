@@ -79,5 +79,11 @@ namespace ParaisoRealA.View
 
                 }
             }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            paswords.IsPassword = paswords.IsPassword ? false : true;
+
         }
+    }
     }
