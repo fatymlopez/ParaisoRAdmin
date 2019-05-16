@@ -160,7 +160,7 @@ namespace ParaisoRealA.ViewModel
                 _selectcategory = value;
                 var name = _selectcategory.nomcategoria;
                 ids = _selectcategory.id;
-                App.Current.MainPage.DisplayAlert("Nombre de la categoria", name + " el id es: " +""+ ids, "OK");
+                //App.Current.MainPage.DisplayAlert("Nombre de la categoria", name + " el id es: " +""+ ids, "OK");
             }
 
         }
