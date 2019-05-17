@@ -181,7 +181,7 @@ namespace ParaisoRealA.ViewModel
                 _selectestado = value;
                 var namestatus = _selectestado.nomestado;
                 idstatus = _selectestado.id;
-                App.Current.MainPage.DisplayAlert("Estado", namestatus + "El id es" + "" + idstatus, "Ok");
+                //App.Current.MainPage.DisplayAlert("Estado", namestatus + "El id es" + "" + idstatus, "Ok");
             }
         }
 
